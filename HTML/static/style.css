@@ -1,7 +1,6 @@
 body{
     text-align: center;
-    background-color: lavender;
-    color: red;
+    background-color: lightgrey;
     
 }
 
@@ -132,13 +131,39 @@ h1 {
 }
 */
 
-
+/*Allt under här lade Adam till för att börja med gilla sidan*/
 #main{
     display: inline-block;
-    max-width: 90%;
+    width: 90%;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+}
+
+#main h1{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h3{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h4{
+    color:black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.card{
+    margin-bottom: 50px;
+}
+.card-deck{
+    margin-bottom: 25px;
 }
 
 
