@@ -1,7 +1,7 @@
 body{
     text-align: center;
     background-color: lavender;
-    color: white;
+    color: red;
     
 }
 
@@ -102,6 +102,7 @@ font-family: Times, Times New Roman, serif;
 h1 {
     text-align: center;
     color: lavender;
+    color:red;
 }
 #footer {
     grid-area:footer;
