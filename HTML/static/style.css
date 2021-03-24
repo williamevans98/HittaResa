@@ -117,6 +117,7 @@ h1 {
    
 }
 
+/*
 @media screen and (max-width: 500px) {
 	#text {
 		grid-template-columns: auto;
@@ -129,3 +130,26 @@ h1 {
 			"footer";
 	}
 }
+*/
+
+
+#main{
+    display: inline-block;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    body {
+      background-color: none;
+      background-image: none;
+    }
+    .rubrik{
+      background-image: none;  
+    }
+  }
+
