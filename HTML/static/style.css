@@ -130,7 +130,15 @@ h1 {
 	}
 }
 */
-
+#filter-icon{
+    width: 100%;
+    display: inline-block;
+}
+#filter-icon img{
+    float: left;
+    width: 20px;
+    height: 20px;
+}
 
 
 .navbar-nav {
@@ -177,6 +185,11 @@ h1 {
     margin-top: 50px;
     max-width: 1000px;
 }
+#main-bild{
+    width: 100%;
+    max-height: 200px;
+}
+
 
 
 
