@@ -1,7 +1,6 @@
 body{
     text-align: center;
-    background-color: lavender;
-    color: white;
+    background-color: lightgrey;
     
 }
 
@@ -102,6 +101,7 @@ font-family: Times, Times New Roman, serif;
 h1 {
     text-align: center;
     color: lavender;
+    color:red;
 }
 #footer {
     grid-area:footer;
@@ -116,6 +116,7 @@ h1 {
    
 }
 
+/*
 @media screen and (max-width: 500px) {
 	#text {
 		grid-template-columns: auto;
@@ -128,3 +129,52 @@ h1 {
 			"footer";
 	}
 }
+*/
+
+/*Allt under här lade Adam till för att börja med gilla sidan*/
+#main{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    max-width: 1000px;
+}
+
+#main h1{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h3{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h4{
+    color:black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.card{
+    margin-bottom: 50px;
+}
+.card-deck{
+    margin-bottom: 25px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    body {
+      background-color: none;
+      background-image: none;
+    }
+    .rubrik{
+      background-image: none;  
+    }
+  }
+
