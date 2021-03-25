@@ -4,105 +4,10 @@ body{
     
 }
 
-#text {
-    text-align: center;
-    color: black;
-   
-    
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 60% 40%;  
-    grid-template-areas:
-        "header header"
-        "main aside"
-        "footer footer"
-    ;
-    gap: 10px;
-    
-}
 
 
-.rubrik{
-    font-family: Impact, fantasy;
-    grid-area: header;
-  min-height: 400px;
-  background-image: url(sol_bild_hitta_resa.jpeg);  
-  background-size: cover;
-  background-position: center;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  box-shadow: var(--shadow);
-  text-align: center;
-  color:white;
-  
-}
-.rubrik1{
-    font-family: Impact, fantasy;
-    grid-area: header;
-    min-height: 400px;
-    background-image: url(starwars1.jpeg);  
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    box-shadow: var(--shadow);
-    text-align: center;
-    color:white;
-}
-.rubrik2{
-    font-family: Impact, fantasy;
-    grid-area: header;
-    min-height: 400px;
-    background-image: url(fight.jpeg);  
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    box-shadow: var(--shadow);
-    text-align: center;
-    color:white;
-}
-.rubrik3{
-    font-family: Impact, fantasy;
-    grid-area: header;
-    min-height: 400px;
-    background-image: url(inception.jpeg);  
-    background-size: cover;
-    background-position: center;
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    box-shadow: var(--shadow);
-    text-align: center;
-    color:white;
-}
-.mest {
-grid-area: main;
 
-font-family: Times, Times New Roman, serif;
-}
 
-.sida{
-    grid-area:aside;
-    font-family: Times, Times New Roman, serif;
-}
-
-h1 {
-    text-align: center;
-    color: lavender;
-    color:red;
-}
 #footer {
     grid-area:footer;
     text-align: center;
@@ -116,23 +21,7 @@ h1 {
    
 }
 
-/*
-@media screen and (max-width: 500px) {
-	#text {
-		grid-template-columns: auto;
-		grid-template-rows: auto auto auto auto auto;
-		grid-template-areas:
-			"header"
-			
-			"main"
-			"aside"
-			"footer";
-	}
-}
-*/
-
-
-
+/*Allt här under tillhör navbar*/
 .navbar-nav {
     float:none;
     margin:0 auto;
@@ -167,7 +56,7 @@ h1 {
 }
 
 
-/*Allt under här lade Adam till för att börja med gilla sidan*/
+/*Allt här under tillhör gilla-sidan*/
 
 #main-index{
     display: inline-block;
@@ -214,15 +103,17 @@ h1 {
     margin-bottom: 25px;
 }
 
+/*Allt här under tillhör om-sidan*/
 
+article{
+    background-color: white;
+    color: black;
+    text-align: left;
+    border: 1px solid black;
+    margin: 25px;
+    padding: 25px;
+}
 
-@media screen and (max-width: 600px) {
-    body {
-      background-color: none;
-      background-image: none;
-    }
-    .rubrik{
-      background-image: none;  
-    }
-  }
-
+#main > article > h1, h2, h3, h4 {
+    color: black; 
+}
