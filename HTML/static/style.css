@@ -168,6 +168,18 @@ h1 {
 
 
 /*Allt under här lade Adam till för att börja med gilla sidan*/
+
+#main-index{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    max-width: 1000px;
+}
+
+
+
 #main{
     display: inline-block;
     width: 90%;
