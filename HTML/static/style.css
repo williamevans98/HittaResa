@@ -1,7 +1,9 @@
 body{
     text-align: center;
     background-color: lightgrey;
+    
 }
+
 
 #footer {
     grid-area:footer;
@@ -12,6 +14,8 @@ body{
     width: 100%;
     line-height: 30px;
     background: black;
+   
+   
 }
 
 /*Allt här under tillhör navbar*/
@@ -48,6 +52,7 @@ body{
     white-space: nowrap;
 }
 
+
 /*Allt här under tillhör gilla-sidan*/
 
 #main-index{
@@ -58,6 +63,8 @@ body{
     margin-top: 50px;
     max-width: 1000px;
 }
+
+
 
 #main{
     display: inline-block;
@@ -84,6 +91,7 @@ body{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 
 .card{
     margin-bottom: 50px;
