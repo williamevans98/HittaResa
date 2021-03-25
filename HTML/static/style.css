@@ -4,10 +4,6 @@ body{
     
 }
 
-
-
-
-
 #footer {
     grid-area:footer;
     text-align: center;
@@ -17,11 +13,21 @@ body{
     width: 100%;
     line-height: 30px;
     background: black;
-   
-   
 }
 
-/*Allt här under tillhör navbar*/
+
+#filter-icon{
+    width: 100%;
+    display: inline-block;
+}
+#filter-icon img{
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+
+
 .navbar-nav {
     float:none;
     margin:0 auto;
@@ -65,6 +71,10 @@ body{
     margin-bottom: 50px;
     margin-top: 50px;
     max-width: 1000px;
+}
+#main-bild{
+    width: 100%;
+    max-height: 200px;
 }
 
 
@@ -117,3 +127,9 @@ article{
 #main > article > h1, h2, h3, h4 {
     color: black; 
 }
+
+
+
+
+
+
