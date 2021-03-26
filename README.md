@@ -11,6 +11,20 @@ HittaResa är en webbaserad applikation som är tänkt att ge människor inspira
 
 
 ---
+## Länk till GitHub med alla våra filer:
+
+[GitHub](https://github.com/williamevans98/HittaResa)
+
+---
+## Instruktioner för att köra koden:
+
+steg 1:
+pip install -r requirements.txt
+
+Steg 2:
+starta: main.py (som kör programmet)
+
+---
 ## Gruppmedlemmar:
 
 - William Evans 
@@ -20,13 +34,11 @@ HittaResa är en webbaserad applikation som är tänkt att ge människor inspira
 - Rasmus Appelgren
 
 ---
-
 ## Demo version 1.0.0:
 Hitta_resa.html - automatic!
 [GitHub](Hitta_resa.html)
 
 ---
-
 ## Copyright
 
 HittaResa
