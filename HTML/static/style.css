@@ -132,4 +132,82 @@ article{
 
 
 
+/*Allt här under tillhör logga in-sidan*/
+#logga-in-main{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    max-width: 1000px;
+}
+
+#logga-in-main .form-control {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: lightgrey;
+    background-clip: padding-box;
+    border-radius: 0%;
+    transition: none;
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+
+#logga-in-main label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 20px;
+}
+
+#logga-in-main input{
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+#logga-in-main input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#logga-in-main .form-control:focus {
+    background-color: lightgrey;
+}
+
+#logga-in-main .btn-primary {
+    color: #fff;
+    background-color: #C64343;
+    border-color: #C64343;
+    width: 50%;
+}
+
+#logga-in-main .btn:hover{
+    background-color: #ad3b3b;
+    border-color: #ad3b3b;
+}
+
+#logga-in-main .lösenord{
+    width: 50%;
+    margin: auto;
+    text-align: right;
+    text-decoration: underline;
+}
+
+#logga-in-main p{
+    margin-bottom: 0px;
+}
+
+
+
 

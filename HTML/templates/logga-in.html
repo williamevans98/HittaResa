@@ -45,52 +45,27 @@
 				
 			
   
-      <div id="main">
+      <div id="logga-in-main">
 
-        <h1>Gillar</h1>
-
-        <div class="input-group rounded">
-          <input type="search" class="form-control rounded" placeholder="Sök" aria-label="Search"
-            aria-describedby="search-addon" />
-        </div>
-        
-
-
-        <h3>Senast gillade</h3>
-        
-        <div class="card-deck">
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">New York</h4>
-              </div>
+        <form method="POST">
+          <h3 align="center">Logga in</h3>
+          <div class="form-group">
+              <label for="email">E-post</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
           </div>
-    
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image2.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">Den kinesiska muren</h4>
-              </div>
+          <div class="form-group">
+              <label for="password">Lösenord</label>
+              <input type="password"  class="form-control" id="password" name="password" placeholder="Ange lösenord" />
           </div>
-    
-        </div>
-
-        <div class="card-deck">
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">New York</h4>
-              </div>
+          <div class="lösenord">
+            <a href="#">Glömt lösenord</a>
           </div>
-    
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image2.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">Den kinesiska muren</h4>
-              </div>
-          </div>
-    
-        </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Logga in</button>
+          <br>
+          <br>
+          <h5>Ny här?</h5><p>Registrera dig och upptäck nya möjligheter!</p><a href="#">Registrera</a>
+        </form>
 
       </div>
               
