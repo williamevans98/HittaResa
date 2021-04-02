@@ -5,14 +5,9 @@ body{
 }
 
 #footer {
-    grid-area:footer;
-    text-align: center;
-    color: lavender;
-    left: 0px;
-    right: 0px;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    line-height: 30px;
-    background: black;
 }
 
 
@@ -140,6 +135,7 @@ article{
     margin-bottom: 50px;
     margin-top: 50px;
     max-width: 1000px;
+    padding-bottom: 174px;
 }
 
 #logga-in-main .form-control {
