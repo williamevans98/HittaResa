@@ -60,22 +60,22 @@ def sign_up():
     return render_template("ny_användare.html", user=current_user)
 
 
-#exempel på en route till gillar-sidan
+#En route till gillar-sidan
 @auth.route('/gillar')
 def gillar():
     return render_template("gillar.html")
 
-
+#En route till inloggningssidan
 @auth.route('/inloggning')
 def inloggning():
     return render_template("inloggning.html")
 
-
+#En route till registrera-sidan
 @auth.route('/registrera')
 def registrera():
     return render_template("registrera.html")
 
-
+#En route till om-sidan
 @auth.route('/om')
 def om():
     return render_template("om.html")
