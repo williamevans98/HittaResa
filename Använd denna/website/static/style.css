@@ -1,7 +1,7 @@
+/*Allt här under tillhör globala saker*/
 body{
     text-align: center;
     background-color: lightgrey;
-    
 }
 
 #footer {
@@ -9,7 +9,6 @@ body{
     bottom: 0;
     width: 100%;
 }
-
 
 #filter-icon{
     width: 100%;
@@ -20,8 +19,6 @@ body{
     width: 20px;
     height: 20px;
 }
-
-
 
 .navbar-nav {
     float:none;
@@ -58,7 +55,6 @@ body{
 
 
 /*Allt här under tillhör gilla-sidan*/
-
 #main-index{
     display: inline-block;
     width: 90%;
