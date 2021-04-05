@@ -29,7 +29,7 @@ def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-@auth.route('/ny_användare.html', methods=['GET', 'POST'])
+@auth.route('/registrera.html', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -57,7 +57,7 @@ def sign_up():
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
 
-    return render_template("ny_användare.html", user=current_user)
+    return render_template("registrera.html", user=current_user)
 
 
 #En route till gillar-sidan
