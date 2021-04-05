@@ -1,0 +1,129 @@
+<!doctype html>
+    <html lang="sv">
+        <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+            <title> Hitta resa </title>
+
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+            
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        </head>
+	
+	<body>
+		<div id="wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Hem </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/gillar">Mina gillningar </a>
+            </li>
+            <a class="navbar-brand" href="/">
+              <img src="/static/images/HittaResaLogoTransparant.png" width="70" height="70" margin="0" class="d-inline-block align-top" alt="">
+              
+            </a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/inloggning">Logga in  <span class="sr-only">(current)</span> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/om">Om HittaResa</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+              <!--Navbar slut-->
+              
+				
+			
+  
+      <div id="registrera-main">
+
+        <form method="POST">
+          <h3 align="center">Registera</h3>
+          <div class="form-group">
+            <label for="email">E-post</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
+        </div>
+        <div class="form-group">
+            <label for="first_name">Namn</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ange för och efternamn" />
+        </div>
+        <div class="form-group">
+            <label for="password1">Lösenord</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Ange lösenord" />
+        </div>
+        <div class="form-group">
+            <label for="password2">Bekräfta lösenord</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Bekräfta lösenord" />
+        </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Registrera</button>
+        </form>
+
+      </div>      
+                    
+		</div>
+
+    <div id="footer">
+      <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-twitter"></i></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2020 Copyright:
+          <a class="text-white" href="/">HittaResa.se</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+		</div>
+
+
+           <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	</body>
+</html>

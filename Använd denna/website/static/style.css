@@ -1,0 +1,279 @@
+body{
+    text-align: center;
+    background-color: lightgrey;
+    
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+#filter-icon{
+    width: 100%;
+    display: inline-block;
+}
+#filter-icon img{
+    float: left;
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+    line-height: 70px;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.navbar-nav > li > a {
+    text-decoration: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 0px;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+
+/*Allt här under tillhör gilla-sidan*/
+
+#main-index{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    max-width: 1000px;
+}
+#main-bild{
+    width: 100%;
+    max-height: 200px;
+}
+
+#main{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    max-width: 1000px;
+}
+
+#main h1{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h3{
+    text-align: left;
+    color:white;
+    margin-top: 20px;
+}
+
+#main h4{
+    color:black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card{
+    margin-bottom: 50px;
+}
+
+.card-deck{
+    margin-bottom: 25px;
+}
+
+
+/*Allt här under tillhör om-sidan*/
+article{
+    background-color: white;
+    color: black;
+    text-align: left;
+    border: 1px solid black;
+    margin: 25px;
+    padding: 25px;
+}
+
+#main > article > h1, h2, h3, h4, h5 {
+    color: black; 
+}
+
+
+/*Allt här under tillhör logga in-sidan*/
+#logga-in-main{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    max-width: 1000px;
+    padding-bottom: 174px;
+}
+
+#logga-in-main .form-control {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: lightgrey;
+    background-clip: padding-box;
+    border-radius: 0%;
+    transition: none;
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+#logga-in-main label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 20px;
+}
+
+#logga-in-main input{
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+#logga-in-main input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#logga-in-main .form-control:focus {
+    background-color: lightgrey;
+}
+
+#logga-in-main .btn-primary {
+    color: #fff;
+    background-color: #C64343;
+    border-color: #C64343;
+    width: 50%;
+}
+
+#logga-in-main .btn:hover{
+    background-color: #ad3b3b;
+    border-color: #ad3b3b;
+}
+
+#logga-in-main .lösenord{
+    width: 50%;
+    margin: auto;
+    text-align: right;
+    text-decoration: underline;
+}
+
+#logga-in-main p{
+    margin-bottom: 0px;
+}
+
+
+/*Allt här under tillhör registrera-sidan*/
+#registrera-main{
+    display: inline-block;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 0px;
+    margin-top: 50px;
+    max-width: 1000px;
+    padding-bottom: 174px;
+}
+
+#registrera-main .form-control {
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1rem;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: lightgrey;
+    background-clip: padding-box;
+    border-radius: 0%;
+    transition: none;
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+#registrera-main label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: 20px;
+}
+
+#registrera-main input{
+    outline:0;
+    border:none;
+    border-bottom: 1px solid #C64343;
+}
+
+#registrera-main input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#registrera-main .form-control:focus {
+    background-color: lightgrey;
+}
+
+#registrera-main .btn-primary {
+    color: #fff;
+    background-color: #C64343;
+    border-color: #C64343;
+    width: 50%;
+}
+
+#registrera-main .btn:hover{
+    background-color: #ad3b3b;
+    border-color: #ad3b3b;
+}
+
+#registrera-main .lösenord{
+    width: 50%;
+    margin: auto;
+    text-align: right;
+    text-decoration: underline;
+}
+
+#registrera-main p{
+    margin-bottom: 0px;
+}
+
+
+

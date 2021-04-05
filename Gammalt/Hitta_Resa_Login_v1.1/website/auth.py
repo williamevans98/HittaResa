@@ -58,12 +58,9 @@ def sign_up():
             return redirect(url_for('views.home'))
 
     return render_template("Create_new_user.html", user=current_user)
-<<<<<<< HEAD
-=======
 
 
 #exempel på en route till gillar-sidan
 @auth.route('/gillar')
 def gillar():
     return render_template("gillar.html")
->>>>>>> gillar-sida
