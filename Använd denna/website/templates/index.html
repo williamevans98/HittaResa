@@ -10,7 +10,12 @@
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
             
-            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+            <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+
         </head>
 	
         <body>
@@ -42,23 +47,50 @@
               </div>
             </nav>
         
-            <div id="main-index">
               <!--Här visas de olika resmålen för användaren -->
-              <div id="filter-icon">
-                <img src="/static/images/filter-icon.png" alt="Gillar inte knapp">
-              </div>
-      
-              <div class="card-deck">
-                <div class="card">
-                    <img class="card-img-top" src="/static/images/test-image.jpg" alt="Card image cap">
+              <div class="swipe">
+                <div class="swipe--status">
+                  <i class="fas fa-trash"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+              
+                <div class="swipe--cards">
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/1.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/2.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/3.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/4.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/5.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/6.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/7.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/8.jpg">
+                  </div>
+                  <div class="swipe--card">
+                    <img src="static/images/destinationsbilder-test/9.jpg">
+                  </div>
+                </div>
+              
+                <div class="swipe--buttons">
+                  <button id="nope"><i class="fas fa-trash"></i></button>
+                  <button id="love"><i class="fa fa-heart"></i></button>
                 </div>
               </div>
-
-              <div id="knappar">
-                <img src="/static/images/gillar-inte.png" alt="Gillar inte knapp">
-                <img src="/static/images/gillar.png" alt="Gillar knapp">
-              </div>
-            </div>
+                       
+              <script src="{{url_for('static', filename='js/swipe.js')}}"></script>
 
             <div id="footer">
               <!--Footer-->
