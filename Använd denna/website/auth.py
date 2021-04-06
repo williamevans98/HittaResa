@@ -5,7 +5,8 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 auth = Blueprint('auth', __name__)
 
-@auth.route('/inloggning', methods=['GET', 'POST'])
+
+@auth.route('/inloggning', methods=['POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -23,13 +24,15 @@ def login():
 
     return render_template("inloggning.html", user=current_user)
 
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
 
-@auth.route('/registrera.html', methods=['GET', 'POST'])
+
+@auth.route('/registrera', methods=['POST'])
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -46,7 +49,7 @@ def sign_up():
             flash('First name must be greater than 1 character.', category='error')
         elif password1 != password2:
             flash('Passwords does not match.', category='error')
-        elif len(password1) < 8:
+        elif len(password1) < 2:
             flash('Password must be at least 8 characters.', category='error')
         else:
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
@@ -60,22 +63,28 @@ def sign_up():
     return render_template("registrera.html", user=current_user)
 
 
-#En route till gillar-sidan
+# En route till gillar-sidan
 @auth.route('/gillar')
 def gillar():
     return render_template("gillar.html")
 
-#En route till inloggningssidan
+# En route till inloggningssidan
+
+
 @auth.route('/inloggning')
 def inloggning():
     return render_template("inloggning.html")
 
-#En route till registrera-sidan
+# En route till registrera-sidan
+
+
 @auth.route('/registrera')
 def registrera():
     return render_template("registrera.html")
 
-#En route till om-sidan
+# En route till om-sidan
+
+
 @auth.route('/om')
 def om():
     return render_template("om.html")
