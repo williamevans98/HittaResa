@@ -8,10 +8,12 @@ CREATE TABLE [user] (
 )
 GO
 
-CREATE TABLE [has] (
-  [like_or_not] int DEFAULT 0
+CREATE TABLE [status] (
+  [user_id] int,
+  [image_id] int,
+  [like_or_not] int,
+  PRIMARY KEY ([user_id], [image_id])
 )
-
 GO
 
 CREATE TABLE [images] (
@@ -20,9 +22,9 @@ CREATE TABLE [images] (
 )
 GO
 
-ALTER TABLE [has] ADD FOREIGN KEY ([like_or_not]) REFERENCES [user] ([user_id])
+ALTER TABLE [status] ADD FOREIGN KEY ([user_id]) REFERENCES [user] ([user_id])
 GO
 
-ALTER TABLE [has] ADD FOREIGN KEY ([like_or_not]) REFERENCES [images] ([image_id])
+ALTER TABLE [status] ADD FOREIGN KEY ([image_id]) REFERENCES [images] ([image_id])
 GO
 
