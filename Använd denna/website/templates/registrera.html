@@ -46,6 +46,14 @@
         <!--Form till registrera-->
         <form method="POST">
           <h3 align="center">Registera</h3>
+          <!--Visa flashade meddelanden -->
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                {{ message }}
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
           <div class="form-group">
             <label for="email">E-post</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
