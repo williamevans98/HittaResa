@@ -28,3 +28,15 @@ GO
 ALTER TABLE [status] ADD FOREIGN KEY ([image_id]) REFERENCES [images] ([image_id])
 GO
 
+INSERT INTO [user] (email, username, password)
+values('test@gmail.com', 'adam', '12345678');
+GO
+
+INSERT INTO [images] (url)
+values('static/images/destinationsbilder-test/1.jpg');
+
+GO
+INSERT INTO [images] (url)
+values('static/images/destinationsbilder-test/2.jpg');
+GO
+
