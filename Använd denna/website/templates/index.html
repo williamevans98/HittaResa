@@ -46,6 +46,9 @@
                 </ul>
               </div>
             </nav>
+
+            <!--Hämtar url från databas och visar upp-->
+            <p>{{ content }}</p>
         
               <!--Här visas de olika resmålen för användaren -->
               <div class="swipe">
@@ -53,37 +56,23 @@
                   <i class="fas fa-trash"></i>
                   <i class="fa fa-heart"></i>
                 </div>
-              
-                <div class="swipe--cards">
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/1.jpg">
+
+                  <!--Hämtar url från databas och visar upp de olika korten-->
+                  <div class="swipe--cards">
+                    <div class="swipe--card">
+                      <img src={{ content }}>
+                    </div>
+
+                    <!--Hämtar bilder från lokala filen-->
+                    <div class="swipe--card">
+                      <img src="static/images/destinationsbilder-test/1.jpg">
+                    </div>
+                    <div class="swipe--card">
+                      <img src="static/images/destinationsbilder-test/4.jpg">
+                    </div>
                   </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/2.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/3.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/4.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/5.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/6.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/7.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/8.jpg">
-                  </div>
-                  <div class="swipe--card">
-                    <img src="static/images/destinationsbilder-test/9.jpg">
-                  </div>
-                </div>
-              
+
+                <!--Gillar inte och gillar knapparna-->
                 <div class="swipe--buttons">
                   <button id="nope"><i class="fas fa-trash"></i></button>
                   <button id="love"><i class="fa fa-heart"></i></button>
