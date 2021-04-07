@@ -47,6 +47,34 @@
               </div>
             </nav>
 
+
+            <!--
+              !!!!!!!TA INE BORT!!!!!!!!
+              #Denna funktionen tillhör den nya funktionen som ligger i views och funkar på samma sätt. Bilderna ligger i reversed ordning 
+              <div class="swipe">
+                <div class="swipe--status">
+                  <i class="fas fa-trash"></i>
+                  <i class="fa fa-heart"></i>
+                </div>
+
+                  {%for i in range(0, content|length, 1):%}
+                        {%for row in content[i:i+1]:%}
+                              <div class="swipe--cards">
+                                <div class="swipe--card">
+                                  <img src={{row[1]}}>
+                                </div>
+                              </div>
+                        {%endfor%}
+                  {%endfor%}
+
+                <div class="swipe--buttons">
+                  <button id="nope"><i class="fas fa-trash"></i></button>
+                  <button id="love"><i class="fa fa-heart"></i></button>
+                </div>
+              </div>
+            -->
+
+
             <!--Hämtar url från databas och visar upp-->
             <p>{{ content }}</p>
         
