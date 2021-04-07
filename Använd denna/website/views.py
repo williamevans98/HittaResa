@@ -29,5 +29,17 @@ def home():
         url = item[1] 
 
     return render_template("index.html", user=current_user, content=url, r=2)
+
+
+'''
+!!!!!!!TA INE BORT!!!!!!!!
+#Denna funktionen funkar att hämta rätt url från databasen men bilderna blir i reversed ordning
+def home():
+    sql = ("SELECT * from images")
+    cursor.execute(sql)
+    data = cursor.fetchall()
+
+    return render_template("index.html", user=current_user, content=data)
+'''
     
 # Routar hem när de har skapat konto samt loggar in användaren
