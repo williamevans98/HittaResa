@@ -14,13 +14,13 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+                flash('Lyckad inloggning!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
-                flash('Incorrect password, try again.', category='error')
+                flash('Fel lösenord, försök igen.', category='error')
         else:
-            flash('Email does not exist.', category='error')
+            flash('E-postadressen finns inte registrerad.', category='error')
 
     return render_template("inloggning.html", user=current_user)
 
@@ -42,15 +42,15 @@ def sign_up():
 
         user = User.query.filter_by(email=email).first()
         if user:
-            flash('Email already exists.', category='error')
+            flash('E-postadressen finns redan registrerad.', category='error')
         elif len(email) < 4:
-            flash('Email must be greater than 3 characters.', category='error')
+            flash('E-postadressen måste innehålla mer än 3 tecken.', category='error')
         elif len(first_name) < 2:
-            flash('First name must be greater than 1 character.', category='error')
+            flash('Namnet måste innehålla mer än 1 tecken', category='error')
         elif password1 != password2:
-            flash('Passwords does not match.', category='error')
+            flash('Lösenorden matchar inte.', category='error')
         elif len(password1) < 2:
-            flash('Password must be at least 8 characters.', category='error')
+            flash('Lösenordet måste innehålla minst 8 tecken.', category='error')
         else:
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
                 password1, method='sha256'))

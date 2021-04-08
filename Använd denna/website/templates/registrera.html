@@ -47,14 +47,16 @@
         <form method="POST">
           <h3 align="center">Registera</h3>
           <!--Visa flashade meddelanden -->
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              {% for message in messages %}
-                {{ message }}
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-          <div class="form-group">
+          <div class="flash">
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+              {% if errors %}
+                {% for error in errors %}
+                <img src="/static/images/error-icon.png" alt="error-icon"> {{ error }}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </div>
+            <div class="form-group">
             <label for="email">E-post</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
         </div>

@@ -415,3 +415,13 @@ article{
   .fa-remove {
     color: #CDD6DD;
   }
+
+/*Allt här under tillhör styling av Flash-meddelande*/
+    
+.flash {
+    display: block;
+    width: 50%;
+    margin: auto;
+    color: #c01919;
+    background-color:#cccccc;
+}  
