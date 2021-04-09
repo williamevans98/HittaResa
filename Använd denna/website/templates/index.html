@@ -16,27 +16,29 @@
 
             <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
 
+            <link rel="shortcut icon" href="/static/images/test-logo3.png">
+
         </head>
 	
         <body>
           <div id="wrapper">
             <!--Navbar-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff;">
+              <a class="navbar-brand d-lg-none" href="/"><img src="/static/images/test-logo1.png" style="padding: 20px;" alt="HittaResa Logo"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mx-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="/">Hem </a>
+                    <a class="nav-link" href="/">Hem<span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/gillar">Mina gillningar <span class="sr-only">(current)</span> </a>
+                    <a class="nav-link" href="/gillar">Mina gillningar</a>
                   </li>
-                  <a class="navbar-brand" href="/">
-                    <img src="/static/images/HittaResaLogoTransparant.png" width="70" height="70" margin="0" class="d-inline-block align-top" alt="">
-                    
-                  </a>
+                  <a class="d-none d-lg-block" href="/">
+                    <img src="/static/images/test-logo3.png" style="height: 70px; margin-left: 20px; margin-right: 20px;" alt="HittaResa Logo">
+                 </a>
                   <li class="nav-item">
                     <a class="nav-link" href="/inloggning">Logga in</a>
                   </li>
