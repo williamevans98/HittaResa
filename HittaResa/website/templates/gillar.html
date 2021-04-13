@@ -50,43 +50,30 @@
             </nav>
               
       <div id="main">
-        <!--Här ligger de olika resmålen som användaren har gillat-->
         <h1>Gillar</h1>
+
+        <!--En sökruta för användaren att hitta olika resmål-->
         <div class="input-group rounded">
           <input type="search" class="form-control rounded" placeholder="Sök" aria-label="Search"
             aria-describedby="search-addon" />
         </div>
         
         <h3>Senast gillade</h3>
-        
-        <div class="card-deck">
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">New York</h4>
-              </div>
-          </div>
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image2.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">Den kinesiska muren</h4>
-              </div>
-          </div>
-        </div>
 
-        <div class="card-deck">
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">New York</h4>
+        <!--Här ligger de olika resmålen som användaren har gillat-->
+        <div class="row">
+          {%for i in range(0, content|length, 1):%}
+              {%for row in content[i:i+1]:%}
+                <div class="col-lg-6 mb-4">
+                  <div class="card">
+                    <img class="card-img-top" src={{row[1]}} alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{row[0]}}</h5>
+                    </div>
+                </div>
               </div>
-          </div>
-          <div class="card">
-              <img class="card-img-top" src="/static/images/test-image2.jpg" alt="Card image cap">
-              <div class="card-block">
-                  <h4 class="card-title">Den kinesiska muren</h4>
-              </div>
-          </div>
+            {%endfor%}
+          {%endfor%}
         </div>
       </div>
 
