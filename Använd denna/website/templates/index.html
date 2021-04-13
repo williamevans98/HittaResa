@@ -20,6 +20,7 @@
 	
         <body>
           <div id="wrapper">
+            
             <!--Navbar-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
               <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,67 +48,35 @@
               </div>
             </nav>
 
+            <!--Här ligger swipe funktionen som visar upp för användaren-->
+            <div class="swipe">
 
-            <!--
-              !!!!!!!TA INE BORT!!!!!!!!
-              #Denna funktionen tillhör den nya funktionen som ligger i views och funkar på samma sätt. Bilderna ligger i reversed ordning 
-              <div class="swipe">
-                <div class="swipe--status">
-                  <i class="fas fa-trash"></i>
-                  <i class="fa fa-heart"></i>
-                </div>
-
-                  {%for i in range(0, content|length, 1):%}
-                        {%for row in content[i:i+1]:%}
-                              <div class="swipe--cards">
-                                <div class="swipe--card">
-                                  <img src={{row[1]}}>
-                                </div>
-                              </div>
-                        {%endfor%}
-                  {%endfor%}
-
-                <div class="swipe--buttons">
-                  <button id="nope"><i class="fas fa-trash"></i></button>
-                  <button id="love"><i class="fa fa-heart"></i></button>
-                </div>
+              <!--Här ligger ikonerna som visas när man swipar-->
+              <div class="swipe--status">
+                <i class="fas fa-trash"></i>
+                <i class="fa fa-heart"></i>
               </div>
-            -->
-
-
-            <!--Hämtar url från databas och visar upp-->
-            <p>{{ content }}</p>
-        
-              <!--Här visas de olika resmålen för användaren -->
-              <div class="swipe">
-                <div class="swipe--status">
-                  <i class="fas fa-trash"></i>
-                  <i class="fa fa-heart"></i>
-                </div>
-
-                  <!--Hämtar url från databas och visar upp de olika korten-->
-                  <div class="swipe--cards">
-                    <div class="swipe--card">
-                      <img src={{ content }}>
-                    </div>
-
-                    <!--Hämtar bilder från lokala filen-->
-                    <div class="swipe--card">
-                      <img src="static/images/destinationsbilder-test/1.jpg">
-                    </div>
-                    <div class="swipe--card">
-                      <img src="static/images/destinationsbilder-test/4.jpg">
-                    </div>
-                  </div>
-
-                <!--Gillar inte och gillar knapparna-->
-                <div class="swipe--buttons">
-                  <button id="nope"><i class="fas fa-trash"></i></button>
-                  <button id="love"><i class="fa fa-heart"></i></button>
-                </div>
+              
+              <!--Här ligger de olika resmålen som hämtas från databasen-->
+              <div class="swipe--cards">
+                {%for i in range(0, content|length, 1):%}
+                      {%for row in content[i:i+1]:%}
+                            <div class="swipe--card">
+                              <img src={{row[1]}}>
+                            </div>
+                      {%endfor%}
+                {%endfor%}
               </div>
-                       
-              <script src="{{url_for('static', filename='js/swipe.js')}}"></script>
+
+              <!--Här ligger knapparna som användaren kan trycka på-->
+              <div class="swipe--buttons">
+                <button id="nope"><i class="fas fa-trash"></i></button>
+                <button id="love"><i class="fa fa-heart"></i></button>
+              </div>
+            </div>
+
+            <!--Importerar swipe-scriptet-->
+            <script src="{{url_for('static', filename='js/swipe.js')}}"></script>
 
             <div id="footer">
               <!--Footer-->
