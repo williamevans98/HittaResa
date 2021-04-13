@@ -3,6 +3,17 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
+import pyodbc as db
+
+# Ansluter till databasen
+server = 'localhost'
+username = 'TestUser'
+password = 'a'
+database = 'HittaResa'
+connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+                        database + ';UID=' + username + ';PWD=' + password)
+cursor = connection.cursor() # type db.Cursor
+
 auth = Blueprint('auth', __name__)
 
 
@@ -66,7 +77,10 @@ def sign_up():
 # En route till gillar-sidan
 @auth.route('/gillar')
 def gillar():
-    return render_template("gillar.html")
+    sql = ("SELECT * from images")
+    cursor.execute(sql)
+    data = cursor.fetchall()
+    return render_template("gillar.html", user=current_user, content=data)
 
 # En route till inloggningssidan
 
