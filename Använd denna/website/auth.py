@@ -3,16 +3,12 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
-import pyodbc as db
+import pymysql
 
-# Ansluter till databasen
-server = 'localhost'
-username = 'TestUser'
-password = 'a'
-database = 'HittaResa'
-connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
-                        database + ';UID=' + username + ';PWD=' + password)
-cursor = connection.cursor() # type db.Cursor
+# Open database connection
+connection = pymysql.connect(host="sql11.freemysqlhosting.net", user="sql11405569", passwd="8M3yX3fj8V", database="sql11405569")
+# prepare a cursor object using cursor() method
+cursor = connection.cursor()
 
 auth = Blueprint('auth', __name__)
 
