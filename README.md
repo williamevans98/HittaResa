@@ -1,7 +1,6 @@
 # HittaResa
 
-![GitHub Logo](/dokument/GitHub/HittaResa/README/HittaResaLogoTransparant.png)
-Format: ![Gruppens logga](url)
+<img width="100" alt="HittaResaLogoTransparant" src="https://user-images.githubusercontent.com/69593731/114869431-411f8600-9df7-11eb-8730-e53df3652807.png">
 
 ** Version 2.0.0 **
 
