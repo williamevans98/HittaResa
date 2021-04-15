@@ -1,21 +1,21 @@
+# Import av funktioner som vi använder
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
+# Detta ska ändras
 db = SQLAlchemy()
 DB_NAME = "userdatabase.db"
 
-# Import av funktioner som vi använder
-
+# Scriptet som fixar databasen
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-# Konfigurerar SQLAlchemy
-
+    # Importerar allt från template, static o.s.v.
     from .views import views
     from .auth import auth
 
@@ -26,6 +26,7 @@ def create_app():
 
     create_database(app)
 
+    # Definierar loginManager
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
@@ -36,7 +37,7 @@ def create_app():
 
     return app
 
-
+# Om databasen inte existerar så skapas den
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
