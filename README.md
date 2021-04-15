@@ -34,7 +34,7 @@ starta: main.py (som kör programmet)
 - Rasmus Appelgren
 
 ---
-## Demo version 1.0.0:
+## Demo version 2.0.0:
 Hitta_resa.html - automatic!
 [GitHub](Hitta_resa.html)
 
