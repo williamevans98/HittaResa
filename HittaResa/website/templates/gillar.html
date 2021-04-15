@@ -53,9 +53,13 @@
         <h1>Gillar</h1>
 
         <!--En sökruta för användaren att hitta olika resmål-->
-        <div class="input-group rounded">
-          <input type="search" class="form-control rounded" placeholder="Sök" aria-label="Search"
-            aria-describedby="search-addon" />
+        <div class="search">
+          <form action="/gillar" method=post>
+              <input type=search class="form-control rounded" placeholder="Sök" name=search value="{{ request.form.search}}"></br>
+              <!-- En knapp som kan läggas till om det behövs
+                <div class="actions"><input type=submit value="Search"></div>
+              -->
+          </form>
         </div>
         
         <h3>Senast gillade</h3>
