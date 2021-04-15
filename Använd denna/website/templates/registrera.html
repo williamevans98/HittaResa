@@ -45,8 +45,23 @@
       <div id="registrera-main">
         <!--Form till registrera-->
         <form method="POST">
+<<<<<<< Updated upstream:Använd denna/website/templates/registrera.html
           <h3 align="center">Registera</h3>
           <div class="form-group">
+=======
+          <h3>Registera</h3>
+          <!--Visa flashade meddelanden -->
+          <div class="flash">
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+              {% if errors %}
+                {% for error in errors %}
+                <img src="/static/images/error-icon.png" alt="error-icon"> {{ error }}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </div>
+            <div class="form-group">
+>>>>>>> Stashed changes:HittaResa/website/templates/registrera.html
             <label for="email">E-post</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
         </div>
