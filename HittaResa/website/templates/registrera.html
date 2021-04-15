@@ -45,40 +45,42 @@
           </ul>
         </div>
       </nav>
-
-      <div id="logga-in-main">
-        <!--Form till inloggning-->
+              
+      <div id="registrera-main">
+        <!--Form till registrera-->
         <form method="POST">
-          <h3>Logga in</h3>
+          <h3>Registera</h3>
           <!--Visa flashade meddelanden -->
           <div class="flash">
-          {% with errors = get_flashed_messages(category_filter=["error"]) %}
-            {% if errors %}
-              {% for error in errors %}
-              <img src="/static/images/error-icon.png" alt="error-icon"> {{ error }}
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+              {% if errors %}
+                {% for error in errors %}
+                <img src="/static/images/error-icon.png" alt="error-icon"> {{ error }}
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
           </div>
-          <div class="form-group">
-              <label for="email">E-post</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
-          </div>
-          <div class="form-group">
-              <label for="password">Lösenord</label>
-              <input type="password"  class="form-control" id="password" name="password" placeholder="Ange lösenord" />
-          </div>
-          <div class="lösenord">
-            <a href="#">Glömt lösenord</a>
-          </div>
+            <div class="form-group">
+            <label for="email">E-post</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Ange e-post" />
+        </div>
+        <div class="form-group">
+            <label for="first_name">Namn</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Ange för och efternamn" />
+        </div>
+        <div class="form-group">
+            <label for="password1">Lösenord</label>
+            <input type="password" class="form-control" id="password1" name="password1" placeholder="Ange lösenord" />
+        </div>
+        <div class="form-group">
+            <label for="password2">Bekräfta lösenord</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Bekräfta lösenord" />
+        </div>
           <br>
-          <button type="submit" class="btn btn-primary">Logga in</button>
-          <br>
-          <br>
-          <h5>Ny här?</h5><p>Registrera dig och upptäck nya möjligheter!</p><a href="/registrera">Registrera</a>
+          <button type="submit" class="btn btn-primary">Registrera</button>
         </form>
-      </div>
-              
+      </div>      
+               
       <div id="footer">
         <!--Footer-->
         <footer class="bg-dark text-center text-white">
