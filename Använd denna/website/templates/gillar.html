@@ -45,9 +45,21 @@
       <div id="main">
         <!--Här ligger de olika resmålen som användaren har gillat-->
         <h1>Gillar</h1>
+<<<<<<< Updated upstream:Använd denna/website/templates/gillar.html
         <div class="input-group rounded">
           <input type="search" class="form-control rounded" placeholder="Sök" aria-label="Search"
             aria-describedby="search-addon" />
+=======
+
+        <!--En sökruta för användaren att hitta olika resmål-->
+        <div class="search">
+          <form action="/gillar" method=post>
+              <input type=search class="form-control rounded" placeholder="Sök" name=search value="{{ request.form.search}}"></br>
+              <!-- En knapp som kan läggas till om det behövs
+                <div class="actions"><input type=submit value="Search"></div>
+              -->
+          </form>
+>>>>>>> Stashed changes:HittaResa/website/templates/gillar.html
         </div>
         
         <h3>Senast gillade</h3>

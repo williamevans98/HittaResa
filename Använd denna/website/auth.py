@@ -64,9 +64,25 @@ def sign_up():
 
 
 # En route till gillar-sidan
-@auth.route('/gillar')
+# Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat
+@auth.route('/gillar', methods=['GET', 'POST'])
 def gillar():
+<<<<<<< Updated upstream:Använd denna/website/auth.py
     return render_template("gillar.html")
+=======
+    if request.method == "POST":
+        print(request.form['search'])
+        search = request.form['search']
+        sql = """SELECT * FROM images WHERE location = '%s'""" % (search)
+        cursor.execute(sql)
+        data = cursor.fetchall()
+        return render_template("gillar.html", user=current_user, content=data)
+    else:
+        sql = ("SELECT * from images")
+        cursor.execute(sql)
+        data = cursor.fetchall()
+        return render_template("gillar.html", user=current_user, content=data)
+>>>>>>> Stashed changes:HittaResa/website/auth.py
 
 # En route till inloggningssidan
 
