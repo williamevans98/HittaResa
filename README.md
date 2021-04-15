@@ -18,10 +18,19 @@ HittaResa är en webbaserad applikation som är tänkt att ge människor inspira
 ---
 ## Instruktioner för att köra koden:
 
-steg 1:
-pip install -r requirements.txt
+Steg 1:
+Installera python med den senaste versionen.
+(Minimum version 3.9.2)
+https://www.python.org/
 
-Steg 2:
+steg 2:
+pip install pip
+pip install Flask
+pip install -U Flask-SQLAlchemy
+pip install flask-login
+pip install PyMySQL
+
+Steg 3:
 starta: main.py (som kör programmet)
 
 ---
