@@ -43,8 +43,7 @@ starta: main.py (som kör programmet)
 
 ---
 ## Demo version 2.0.0:
-Hitta_resa.html - automatic!
-[GitHub](Hitta_resa.html)
+[HittaResa.nu](hittaresa.nu) (Kommer snart!)
 
 ---
 ## Copyright
