@@ -80,6 +80,14 @@
 
                 if (love) {
                   card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+                  
+                  var img = card.querySelector('.cardImg');
+                  var imgSrc = img.getAttribute("src");
+                  var imgAlt = img.getAttribute("alt");
+                  var mdlImg = document.getElementById("myModalImg");
+                  mdlImg.setAttribute("src", imgSrc);
+                  var mdlTitle = document.getElementById("myModalTitle");
+                  mdlTitle.innerHTML = imgAlt;
                 } else {
                   card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
                 }
