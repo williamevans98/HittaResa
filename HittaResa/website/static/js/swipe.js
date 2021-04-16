@@ -79,8 +79,6 @@
                 card.classList.add('removed');
 
                 if (love) {
-                  card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
-                  
                   var img = card.querySelector('.cardImg');
                   var imgSrc = img.getAttribute("src");
                   var imgAlt = img.getAttribute("alt");
@@ -88,6 +86,7 @@
                   mdlImg.setAttribute("src", imgSrc);
                   var mdlTitle = document.getElementById("myModalTitle");
                   mdlTitle.innerHTML = imgAlt;
+                  card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
                 } else {
                   card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
                 }
