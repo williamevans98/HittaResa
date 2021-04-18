@@ -42,6 +42,9 @@
 
               hammertime.on('panend', function (event) {
                 el.classList.remove('moving');
+                // sätts till "true" om man swipar till höger och "false" om man swipar till vänster
+                var love_swipe = swipeContainer.classList.contains("swipe_love");
+
                 swipeContainer.classList.remove('swipe_love');
                 swipeContainer.classList.remove('swipe_nope');
 
@@ -62,6 +65,18 @@
                   var rotate = xMulti * yMulti;
 
                   event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+                  
+                  // om bilden swipas till höger sätts "src" och "alt" för bilden i modalen och sen visas modalen
+                  if (love_swipe) {
+                    var img = el.querySelector('.cardImg');
+                    var imgSrc = img.getAttribute("src");
+                    var imgAlt = img.getAttribute("alt");
+                    var mdlImg = document.getElementById("myModalImg");
+                    mdlImg.setAttribute("src", imgSrc);
+                    var mdlTitle = document.getElementById("myModalTitle");
+                    mdlTitle.innerHTML = imgAlt;
+                    $('#exampleModalCenter').modal("show");
+                  }
                   initCards();
                 }
               });
@@ -79,6 +94,7 @@
                 card.classList.add('removed');
 
                 if (love) {
+                  // om man klickar på "love" sätts "src" och "alt" för bilden i modalen
                   var img = card.querySelector('.cardImg');
                   var imgSrc = img.getAttribute("src");
                   var imgAlt = img.getAttribute("alt");
@@ -86,6 +102,7 @@
                   mdlImg.setAttribute("src", imgSrc);
                   var mdlTitle = document.getElementById("myModalTitle");
                   mdlTitle.innerHTML = imgAlt;
+
                   card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
                 } else {
                   card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
