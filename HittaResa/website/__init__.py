@@ -9,10 +9,12 @@ db = SQLAlchemy()
 DB_NAME = "userdatabase.db"
 
 # Scriptet som fixar databasen
+
+
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11405569:8M3yX3fj8V@sql11.freemysqlhosting.net/sql11405569'
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
@@ -38,6 +40,8 @@ def create_app():
     return app
 
 # Om databasen inte existerar så skapas den
+
+
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
