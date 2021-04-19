@@ -6,7 +6,7 @@ from flask_login import LoginManager
 
 # Detta ska ändras
 db = SQLAlchemy()
-DB_NAME = "userdatabase.db"
+DB_NAME = "login_manager"
 
 # Scriptet som fixar databasen
 
@@ -44,5 +44,8 @@ def create_app():
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
+
+        '''"CREATE TABLE login_manager (id int AUTO_INCREMENT PRIMARY KEY, email varchar(50), password varchar(50), first_name varchar(50));"'''
+
         db.create_all(app=app)
         print('Created Database!')
