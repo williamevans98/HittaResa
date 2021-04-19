@@ -18,7 +18,7 @@ auth = Blueprint('auth', __name__)
 # Hämtar alla fält och försöker logga in användaren
 
 
-@auth.route('/inloggning', methods=['POST'])
+@auth.route('/inloggning', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -27,7 +27,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
-                login_user(user, remember=True)
+                login_user(user, remember=False)
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
@@ -65,7 +65,7 @@ def sign_up():
             flash('First name must be greater than 1 character.', category='error')
         elif password1 != password2:
             flash('Passwords does not match.', category='error')
-        elif len(password1) < 8:
+        elif len(password1) < 2:
             flash('Password must be at least 8 characters.', category='error')
         else:
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
