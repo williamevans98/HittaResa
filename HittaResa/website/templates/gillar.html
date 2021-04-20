@@ -40,8 +40,21 @@
                     <img src="/static/images/test-logo3.png" style="height: 70px; margin-left: 20px; margin-right: 20px;" alt="HittaResa Logo">
                  </a>
                   <li class="nav-item">
-                    <a class="nav-link" href="/inloggning">Logga in</a>
-                  </li>
+                {% if current_user.is_authenticated %}
+                <li>
+                  <a href="/logout"
+                    >Logout <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                {% else %}
+                <li>
+                  <a href="/inloggning"
+                    >Login <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                {% endif %}
+              </a>
+            </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/om">Om HittaResa</a>
                   </li>

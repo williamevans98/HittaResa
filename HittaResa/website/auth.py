@@ -6,7 +6,8 @@ from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
 
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host="sql11.freemysqlhosting.net", user="sql11405569", passwd="8M3yX3fj8V", database="sql11405569")
+connection = pymysql.connect(host="sql11.freemysqlhosting.net",
+                             user="sql11405569", passwd="8M3yX3fj8V", database="sql11405569")
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()
@@ -15,7 +16,9 @@ cursor = connection.cursor()
 auth = Blueprint('auth', __name__)
 
 # Hämtar alla fält och försöker logga in användaren
-@auth.route('/inloggning', methods=['POST'])
+
+
+@auth.route('/inloggning', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -24,7 +27,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
-                login_user(user, remember=True)
+                login_user(user, remember=False)
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
@@ -34,6 +37,8 @@ def login():
     return render_template("inloggning.html", user=current_user)
 
 # Loggar ut användaren
+
+
 @auth.route('/logout')
 @login_required
 def logout():
@@ -41,6 +46,8 @@ def logout():
     return redirect(url_for('auth.login'))
 
 # Hämtar alla fält och registrerar användaren
+
+
 @auth.route('/registrera', methods=['POST'])
 def sign_up():
     if request.method == 'POST':
@@ -58,7 +65,7 @@ def sign_up():
             flash('First name must be greater than 1 character.', category='error')
         elif password1 != password2:
             flash('Passwords does not match.', category='error')
-        elif len(password1) < 8:
+        elif len(password1) < 2:
             flash('Password must be at least 8 characters.', category='error')
         else:
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
@@ -73,6 +80,8 @@ def sign_up():
 
 # En route till gillar-sidan
 # Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat
+
+
 @auth.route('/gillar', methods=['GET', 'POST'])
 def gillar():
     if request.method == "POST":
@@ -89,16 +98,22 @@ def gillar():
         return render_template("gillar.html", user=current_user, content=data)
 
 # En route till inloggningssidan
+
+
 @auth.route('/inloggning')
 def inloggning():
     return render_template("inloggning.html")
 
 # En route till registrera-sidan
+
+
 @auth.route('/registrera')
 def registrera():
     return render_template("registrera.html")
 
 # En route till om-sidan
+
+
 @auth.route('/om')
 def om():
     return render_template("om.html")
