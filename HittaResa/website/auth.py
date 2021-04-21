@@ -27,7 +27,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in successfully!', category='success')
-                login_user(user, remember=False)
+                login_user(user, remember=False, fresh=True)
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
@@ -65,18 +65,18 @@ def sign_up():
             flash('First name must be greater than 1 character.', category='error')
         elif password1 != password2:
             flash('Passwords does not match.', category='error')
-        elif len(password1) < 2:
+        elif len(password1) < 8:
             flash('Password must be at least 8 characters.', category='error')
         else:
             new_user = User(email=email, first_name=first_name, password=generate_password_hash(
                 password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(new_user, remember=True)
+            #login_user(new_user, remember=False)
             flash('Account created!', category='success')
             return redirect(url_for('views.home'))
 
-    return render_template("registrera.html", user=current_user)
+    return render_template("registrera.html")
 
 # En route till gillar-sidan
 # Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat
