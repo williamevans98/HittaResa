@@ -5,3 +5,4 @@ pip install flask-login
 pip install PyMySQL
 pip install mysql-connector
 pip install wikipedia
+pip install cachetools
