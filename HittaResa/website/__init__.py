@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 import wikipedia
+from cachetools import cached
 
 # Detta ska ändras
 db = SQLAlchemy()
@@ -45,6 +46,9 @@ def create_app():
 
 
 # Hämta från wikipedia
+# Cache:ad för att få ner laddningstiden efter första gången
+# TTL (time to live) är by default satt till 10800s (3hrs), sen hämtas summaryn igen från wikipedia
+@cached(cache={})
 def fetch_from_wikipedia(title):
     wikipedia.set_lang("sv")
     summary = wikipedia.summary(title, sentences=2)
