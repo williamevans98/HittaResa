@@ -6,6 +6,7 @@ from flask_login import LoginManager
 import wikipedia
 from cachetools import cached
 
+
 # Detta ska ändras
 db = SQLAlchemy()
 DB_NAME = "login_manager"
@@ -44,7 +45,6 @@ def create_app():
     return app
 
 
-
 # Hämta från wikipedia
 # Cache:ad för att få ner laddningstiden efter första gången
 # TTL (time to live) är by default satt till 10800s (3hrs), sen hämtas summaryn igen från wikipedia
@@ -55,7 +55,6 @@ def fetch_from_wikipedia(title):
     return summary
 
 # Om databasen inte existerar så skapas den
-
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):

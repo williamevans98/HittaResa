@@ -23,8 +23,6 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
 
-    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
-
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/font-awesome.css') }}"
@@ -59,10 +57,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/"
-                >Hem<span class="sr-only">(current)</span></a
-              >
+            <li class="nav-item">
+              <a class="nav-link" href="/">Hem</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/gillar">Mina gillningar</a>
@@ -74,21 +70,10 @@
                 alt="HittaResa Logo"
               />
             </a>
-            <li class="nav-item">
-                {% if current_user.is_active %}
-                <li>
-                  <a class="nav-link" href="/logout"
-                    >Logout <span class="sr-only">(current)</span></a
-                  >
-                </li>
-                {% else %}
-                <li>
-                  <a class="nav-link" href="/inloggning"
-                    >Login <span class="sr-only">(current)</span></a
-                  >
-                </li>
-                {% endif %}
-              </a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/inloggning"
+                >Login <span class="sr-only">(current)</span></a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/om">Om HittaResa</a>
@@ -97,88 +82,34 @@
         </div>
       </nav>
 
-      <div class="flash-signin">
-        {% if current_user.is_active %}
-          <p>Välkommen  {{ current_user.first_name }}</p>
-        {% else %}
-          <p>Välkommen till HittaResa! </p>
-        {% endif %}
-      </div>
-      <!--Här ligger swipe funktionen som visar upp för användaren-->
-      <div class="swipe">
-        <!--Här ligger ikonerna som visas när man swipar-->
-        <div class="swipe--status">
-          <i class="fas fa-trash"></i>
-          <i class="fa fa-heart"></i>
-        </div>
-
-        <!--Här ligger de olika resmålen som hämtas från databasen-->
-        <div class="swipe--cards">
-          {%for i in range(0, content|length, 1):%} 
-            {%for row in content[i:i+1]:%}
-            {% set title = row[1]%}
-            <div class="swipe--card">
-              <img src="{{row[2]}}" class="cardImg" alt="{{row[1]}}" />
-              <div id="{{row[1]}}">{{fetch_from_wikipedia(title)}}</div> 
-            </div>
-            {%endfor%} 
-          {%endfor%}
-        </div>
-
-        <!--Här ligger knapparna som användaren kan trycka på-->
-        <div class="swipe--buttons">
-          <button id="nope"><i class="fas fa-trash"></i></button>
-          <button
-            id="love"
-            data-toggle="modal"
-            data-target="#exampleModalCenter"
-          >
-            <i class="fa fa-heart"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Här ligger modalen som visar bilden om man klickar på "love"-knappen -->
-      <div
-        class="modal fade"
-        id="exampleModalCenter"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="myModalTitle"></h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img src="" id="myModalImg" width="350px" />
-              <div id="myModalText"></div>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
+      <div id="logga-in-main">
+        <!--Form till inloggning-->
+        <form method="POST">
+          <h3>Logga in</h3>
+          <!--Visa flashade meddelanden -->
+          <div class="flash">
+            {% with errors = get_flashed_messages(category_filter=["error"]) %}
+            {% if errors %} {% for error in errors %}
+            <img src="/static/images/error-icon.png" alt="error-icon" /> {{
+            error }} {% endfor %} {% endif %} {% endwith %}
           </div>
-        </div>
+          <div class="form-group">
+            <label for="email">E-post</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Ange e-post"
+            />
+          <br />
+          <button type="submit" class="btn btn-primary">Skicka</button>
+          <br />
+          <br />
+          <h5>Glömt lösenordet?</h5>
+          <p>Vänligen fyll i din email adress så återkommer vi som snarast!</p>
+        </form>
       </div>
-
-      <!--Importerar swipe-scriptet-->
-      <script src="{{url_for('static', filename='js/swipe.js')}}"></script>
 
       <div id="footer">
         <!--Footer-->
