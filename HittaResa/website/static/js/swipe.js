@@ -75,6 +75,10 @@
                     mdlImg.setAttribute("src", imgSrc);
                     var mdlTitle = document.getElementById("myModalTitle");
                     mdlTitle.innerHTML = imgAlt;
+                    var summary = document.getElementById(imgAlt).innerHTML;
+                    var mdlText = document.getElementById("myModalText");
+                    mdlText.innerHTML = summary;
+  
                     $('#exampleModalCenter').modal("show");
                   }
                   initCards();
@@ -102,6 +106,9 @@
                   mdlImg.setAttribute("src", imgSrc);
                   var mdlTitle = document.getElementById("myModalTitle");
                   mdlTitle.innerHTML = imgAlt;
+                  var summary = document.getElementById(imgAlt).innerHTML;
+                  var mdlText = document.getElementById("myModalText");
+                  mdlText.innerHTML = summary;
 
                   card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
                 } else {

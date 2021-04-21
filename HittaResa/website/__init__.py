@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
+import wikipedia
 
 # Detta ska ändras
 db = SQLAlchemy()
@@ -37,7 +38,17 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id))
 
+    app.jinja_env.globals.update(fetch_from_wikipedia=fetch_from_wikipedia)
+
     return app
+
+
+
+# Hämta från wikipedia
+def fetch_from_wikipedia(title):
+    wikipedia.set_lang("sv")
+    summary = wikipedia.summary(title, sentences=2)
+    return summary
 
 # Om databasen inte existerar så skapas den
 
