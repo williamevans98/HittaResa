@@ -1,4 +1,14 @@
+<<<<<<< Updated upstream
 pip install pip
 pip install Flask
 pip install -U Flask-SQLAlchemy
 pip install flask-login
+=======
+flask
+Flask-SQLAlchemy
+flask-login
+PyMySQL
+mysql-connector
+wikipedia
+cachetools
+>>>>>>> Stashed changes
