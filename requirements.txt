@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-pip install pip
-pip install Flask
-pip install -U Flask-SQLAlchemy
-pip install flask-login
-pip install PyMySQL
-pip install mysql-connector
-pip install wikipedia
-pip install cachetools
-=======
 flask
 Flask-SQLAlchemy
 flask-login
@@ -15,4 +5,3 @@ PyMySQL
 mysql-connector
 wikipedia
 cachetools
->>>>>>> Stashed changes
