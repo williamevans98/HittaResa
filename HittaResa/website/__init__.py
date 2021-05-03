@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 import wikipedia
-from cachetools import cached
 
 
 # Detta ska ändras
@@ -28,6 +27,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User
+    from .fetch_from_wikipedia import summaries
 
     create_database(app)
 
@@ -40,20 +40,10 @@ def create_app():
     def load_user(id):
         return User.query.get(int(id))
 
-    app.jinja_env.globals.update(fetch_from_wikipedia=fetch_from_wikipedia)
+    app.jinja_env.globals.update(summaries=summaries)
 
     return app
 
-
-
-# Hämta från wikipedia
-# Cache:ad för att få ner laddningstiden efter första gången
-# TTL (time to live) är by default satt till 10800s (3hrs), sen hämtas summaryn igen från wikipedia
-@cached(cache={})
-def fetch_from_wikipedia(title):
-    wikipedia.set_lang("sv")
-    summary = wikipedia.summary(title, sentences=2)
-    return summary
 
 # Om databasen inte existerar så skapas den
 
