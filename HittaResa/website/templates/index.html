@@ -119,7 +119,7 @@
             {% set title = row[1]%}
             <div class="swipe--card">
               <img src="{{row[2]}}" class="cardImg" alt="{{row[1]}}" />
-              <div id="{{row[1]}}">{{fetch_from_wikipedia(title)}}</div> 
+              <div id="{{row[1]}}">{{summaries.get(title)}}</div> 
             </div>
             {%endfor%} 
           {%endfor%}
