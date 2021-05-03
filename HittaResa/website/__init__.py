@@ -1,26 +1,21 @@
-# Import av funktioner som vi använder
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
-import wikipedia
-from cachetools import cached
 
-
-# Detta ska ändras
 db = SQLAlchemy()
-DB_NAME = "login_manager"
+DB_NAME = "userdatabase.db"
 
-# Scriptet som fixar databasen
-
+# Import av funktioner som vi använder
 
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11405569:8M3yX3fj8V@sql11.freemysqlhosting.net/sql11405569'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
-    # Importerar allt från template, static o.s.v.
+# Konfigurerar SQLAlchemy
+
     from .views import views
     from .auth import auth
 
@@ -31,35 +26,31 @@ def create_app():
 
     create_database(app)
 
-    # Definierar loginManager
+<<<<<<< Updated upstream
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
+=======
+    # Definierar loginManager
+    user = LoginManager()
+    user.login_view = 'auth.login'
+    user.init_app(app)
+>>>>>>> Stashed changes
 
-    @login_manager.user_loader
+    @user.user_loader
     def load_user(id):
         return User.query.get(int(id))
-
-    app.jinja_env.globals.update(fetch_from_wikipedia=fetch_from_wikipedia)
 
     return app
 
 
-# Hämta från wikipedia
-# Cache:ad för att få ner laddningstiden efter första gången
-# TTL (time to live) är by default satt till 10800s (3hrs), sen hämtas summaryn igen från wikipedia
-@cached(cache={})
-def fetch_from_wikipedia(title):
-    wikipedia.set_lang("sv")
-    summary = wikipedia.summary(title, sentences=2)
-    return summary
-
-# Om databasen inte existerar så skapas den
-
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
+<<<<<<< Updated upstream
+=======
 
-        '''"CREATE TABLE login_manager (id int AUTO_INCREMENT PRIMARY KEY, email varchar(50), password varchar(50), first_name varchar(50));"'''
+        '''"CREATE TABLE user (user_id int AUTO_INCREMENT PRIMARY KEY, email varchar(150), password varchar(150));"'''
 
+>>>>>>> Stashed changes
         db.create_all(app=app)
         print('Created Database!')
