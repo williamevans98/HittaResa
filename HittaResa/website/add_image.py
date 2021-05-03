@@ -38,3 +38,26 @@ SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image
 
 #Använd på index för att visa upp alla bilder för en användare som inte är inloggad 
 SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = NULL)
+
+
+#index.html
+    #visa (endast) de bilder som inte är gillade (NULL)
+            #show * in images where like_or_not = NULL
+
+#gillar.html
+    #visa endast de bilder som är gillade (1)
+        #if inloggad
+            #Använd på gillar.html (ändra 26 till current_user)
+            SELECT * FROM `images`
+            JOIN status on images.image_id = status.image_id
+            WHERE like_or_not = 1 AND user_id = 26 
+        #else
+            #visa ett meddelande
+
+
+#swipe.js
+    #Ändra status på bilden
+        #if bilden == gillad
+            #ändra status
+        #else
+            #pass
