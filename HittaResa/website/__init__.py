@@ -26,16 +26,10 @@ def create_app():
 
     create_database(app)
 
-<<<<<<< Updated upstream
-    login_manager = LoginManager()
-    login_manager.login_view = 'auth.login'
-    login_manager.init_app(app)
-=======
     # Definierar loginManager
     user = LoginManager()
     user.login_view = 'auth.login'
     user.init_app(app)
->>>>>>> Stashed changes
 
     @user.user_loader
     def load_user(id):
@@ -46,11 +40,8 @@ def create_app():
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
-<<<<<<< Updated upstream
-=======
 
         '''"CREATE TABLE user (user_id int AUTO_INCREMENT PRIMARY KEY, email varchar(150), password varchar(150));"'''
 
->>>>>>> Stashed changes
         db.create_all(app=app)
         print('Created Database!')
