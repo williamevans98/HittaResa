@@ -99,7 +99,7 @@
 
       <div class="flash-signin">
         {% if current_user.is_active %}
-          <p>Välkommen  {{ current_user.first_name }}</p>
+          <p>Välkommen  {{ current_user.email }}</p>
         {% else %}
           <p>Välkommen till HittaResa! </p>
         {% endif %}

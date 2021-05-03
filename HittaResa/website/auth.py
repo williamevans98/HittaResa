@@ -52,7 +52,6 @@ def logout():
 def sign_up():
     if request.method == 'POST':
         email = request.form.get('email')
-        first_name = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
@@ -61,14 +60,12 @@ def sign_up():
             flash('Email finns redan', category='error')
         elif len(email) < 4:
             flash('Email måste bestå av mer än 3 bokstäver', category='error')
-        elif len(first_name) < 2:
-            flash('Förnamnet måste vara längre än 1 bokstav', category='error')
         elif password1 != password2:
             flash('Lösenord matchar inte', category='error')
         elif len(password1) < 8:
             flash('Lösenordet måste vara mer än 8 karaktärer', category='error')
         else:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(
+            new_user = User(email=email, password=generate_password_hash(
                 password1, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
