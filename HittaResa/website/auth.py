@@ -16,8 +16,6 @@ cursor = connection.cursor()
 auth = Blueprint('auth', __name__)
 
 # Hämtar alla fält och försöker logga in användaren
-
-
 @auth.route('/inloggning', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -37,8 +35,6 @@ def login():
     return render_template("inloggning.html", user=current_user)
 
 # Loggar ut användaren
-
-
 @auth.route('/logout')
 @login_required
 def logout():
@@ -46,8 +42,6 @@ def logout():
     return redirect(url_for('auth.login'))
 
 # Hämtar alla fält och registrerar användaren
-
-
 @auth.route('/registrera', methods=['POST'])
 def sign_up():
     if request.method == 'POST':
@@ -77,40 +71,57 @@ def sign_up():
 
 # En route till gillar-sidan
 # Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat
-
-
 @auth.route('/gillar', methods=['GET', 'POST'])
 def gillar():
+    string = str(current_user)
+    get_last_element = string.split(' ')[-1]
+    get_user_id = get_last_element.strip('>')
+    print(get_user_id)
     if request.method == "POST":
         print(request.form['search'])
         search = request.form['search']
-        sql = """SELECT * FROM images WHERE location = '%s'""" % (search)
-        cursor.execute(sql)
-        data = cursor.fetchall()
-        return render_template("gillar.html", user=current_user, content=data)
+        try:
+            sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
+            cursor.execute(sql)
+            data = cursor.fetchall()
+            return render_template("gillar.html", user=current_user, content=data)
+        except:
+            return render_template("gillar.html", user=current_user, content=data)
     else:
-        sql = ("SELECT * from images")
+        sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id)
         cursor.execute(sql)
         data = cursor.fetchall()
         return render_template("gillar.html", user=current_user, content=data)
 
 # En route till inloggningssidan
-
-
 @auth.route('/inloggning')
 def inloggning():
     return render_template("inloggning.html")
 
 # En route till registrera-sidan
-
-
 @auth.route('/registrera')
 def registrera():
     return render_template("registrera.html")
 
 # En route till om-sidan
-
-
 @auth.route('/om')
 def om():
     return render_template("om.html")
+
+def image_like_or_not():
+    string = str(current_user)
+    get_last_element = string.split(' ')[-1]
+    get_user_id = get_last_element.strip('>')
+    print(get_user_id)
+    status_like = "1"
+    if love:
+        if get_user_id != "":
+            sql = "INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", (get_user_id, get_image_id, status_like)
+            cursor.execute(sql)
+            data = cursor.fetchall()
+            connection.commit()
+        else:
+            pass
+    else:
+        pass
+    return fetch_image_id

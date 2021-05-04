@@ -18,7 +18,11 @@ views = Blueprint('views', __name__)
 
 # Hämtar bild-länken från databasen och returnerar den som "data"
 def home():
-    sql = ("SELECT * from images")
+    string = str(current_user)
+    get_last_element = string.split(' ')[-1]
+    get_user_id = get_last_element.strip('>')
+    print(get_user_id)
+    sql = ("SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + ")")
     cursor.execute(sql)
     data = cursor.fetchall()
     return render_template("index.html", user=current_user, content=data)
