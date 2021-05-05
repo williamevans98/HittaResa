@@ -25,4 +25,5 @@ def home():
     sql = ("SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + ")")
     cursor.execute(sql)
     data = cursor.fetchall()
+    connection.close()
     return render_template("index.html", user=current_user, content=data)

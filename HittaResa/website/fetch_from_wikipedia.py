@@ -20,6 +20,7 @@ cursor = connection.cursor()
 sql = ("SELECT location from images")
 cursor.execute(sql)
 locations = cursor.fetchall()
+connection.close()
 
 # Hämta summaries från wikipedia för alla locations
 # Spara i en dictionary med location som key och summary som value
