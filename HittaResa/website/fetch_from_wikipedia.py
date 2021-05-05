@@ -10,8 +10,7 @@ def fetch_from_wikipedia(title):
 
 
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host="sql11.freemysqlhosting.net",
-                             user="sql11405569", passwd="8M3yX3fj8V", database="sql11405569")
+connection = pymysql.connect(host="sql11.freemysqlhosting.net", user="sql11410449", passwd="EWSU2hrvn9", database="sql11410449")
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()

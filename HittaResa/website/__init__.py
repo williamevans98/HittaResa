@@ -16,7 +16,7 @@ DB_NAME = "login_manager"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11405569:8M3yX3fj8V@sql11.freemysqlhosting.net/sql11405569'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11410449:EWSU2hrvn9@sql11.freemysqlhosting.net/sql11410449'
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
