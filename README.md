@@ -2,7 +2,7 @@
 
 <img width="100" alt="HittaResaLogoTransparant" src="https://user-images.githubusercontent.com/69593731/114869431-411f8600-9df7-11eb-8730-e53df3652807.png">
 
-** Version 2.0.0 **
+** Version 3.0.0 **
 
 ## Projektbeskrivning:
 
@@ -23,13 +23,12 @@ Installera python med den senaste versionen.
 https://www.python.org/
 
 steg 2:
-pip install pip
-pip install Flask
-pip install -U Flask-SQLAlchemy
-pip install flask-login
-pip install PyMySQL
+pip install -r requirements.txt
 
 Steg 3:
+Lägg db_connection.py som ni hämtade i zip-filen från canvas på samma plats som main.py
+
+Steg 4:
 starta: main.py (som kör programmet)
 
 ---
@@ -42,7 +41,7 @@ starta: main.py (som kör programmet)
 - Rasmus Appelgren
 
 ---
-## Demo version 2.0.0:
+## Demo version 3.0.0:
 [HittaResa.nu](hittaresa.nu) (Kommer snart!)
 
 ---
