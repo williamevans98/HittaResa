@@ -4,9 +4,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
+from db_connection import *
 
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host="sql11.freemysqlhosting.net", user="sql11410449", passwd="EWSU2hrvn9", database="sql11410449")
+connection = pymysql.connect(host=database_host, user=database_user, passwd=database_password, database=database_name)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()

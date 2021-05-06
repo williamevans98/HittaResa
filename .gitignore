@@ -11,6 +11,8 @@
 # Icon must end with two \r
 Icon
 
+# Ignorerar db_connection.py
+db_connection.py
 
 # Thumbnails
 ._*

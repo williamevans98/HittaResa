@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 import wikipedia
+from db_connection import *
 
 
 # Detta ska ändras
@@ -16,7 +17,7 @@ DB_NAME = "login_manager"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11410449:EWSU2hrvn9@sql11.freemysqlhosting.net/sql11410449'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://' + database_name + ':' + database_password + '@' + database_host + '/' + database_user
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
@@ -28,8 +29,6 @@ def create_app():
 
     from .models import User
     from .fetch_from_wikipedia import summaries
-
-    create_database(app)
 
     # Definierar loginManager
     user = LoginManager()
@@ -44,14 +43,4 @@ def create_app():
 
     return app
 
-
-# Om databasen inte existerar så skapas den
-
-
-def create_database(app):
-    if not path.exists('website/' + DB_NAME):
-
-        '''"CREATE TABLE user (user_id int AUTO_INCREMENT PRIMARY KEY, email varchar(150), password varchar(150));"'''
-
-        db.create_all(app=app)
-        print('Created Database!')
+    app.close()

@@ -1,5 +1,6 @@
 import wikipedia
 import pymysql
+from db_connection import *
 
 wikipedia.set_lang("sv")
 
@@ -8,9 +9,8 @@ def fetch_from_wikipedia(title):
     summary = wikipedia.summary(title, sentences=2)
     return summary
 
-
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host="sql11.freemysqlhosting.net", user="sql11410449", passwd="EWSU2hrvn9", database="sql11410449")
+connection = pymysql.connect(host=database_host, user=database_user, passwd=database_password, database=database_name)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()
