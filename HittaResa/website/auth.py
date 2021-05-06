@@ -84,16 +84,17 @@ def gillar():
             sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
             cursor.execute(sql)
             data = cursor.fetchall()
-            connection.close()
             return render_template("gillar.html", user=current_user, content=data)
+            connection.close()
         except:
             return render_template("gillar.html", user=current_user, content=data)
+            connection.close()
     else:
         sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id)
         cursor.execute(sql)
         data = cursor.fetchall()
-        connection.close()
         return render_template("gillar.html", user=current_user, content=data)
+        connection.close()
 
 # En route till inloggningssidan
 @auth.route('/inloggning')
