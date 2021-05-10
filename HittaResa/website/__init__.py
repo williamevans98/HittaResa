@@ -1,6 +1,7 @@
 # Import av funktioner som vi använder
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import sessionmaker
 from os import path
 from flask_login import LoginManager
 import wikipedia
@@ -17,7 +18,7 @@ DB_NAME = "login_manager"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://' + database_name + ':' + database_password + '@' + database_host + '/' + database_user
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://TestUser:a@localhost/HittaResa?driver=SQL+Server"
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
@@ -43,4 +44,5 @@ def create_app():
 
     return app
 
-    app.close()
+    session.close()
+    engine.dispose()

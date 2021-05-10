@@ -9,8 +9,15 @@ def fetch_from_wikipedia(title):
     summary = wikipedia.summary(title, sentences=2)
     return summary
 
+import pyodbc 
+
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host=database_host, user=database_user, passwd=database_password, database=database_name)
+server = 'localhost'
+username = 'TestUser'
+password = 'a'
+database = 'HittaResa'
+connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+                        database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()

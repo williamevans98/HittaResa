@@ -1,15 +1,20 @@
 import pymysql
-from db_connection import *
+import pyodbc 
 
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host=database_host, user=database_user, passwd=database_password, database=database_name)
+server = 'localhost'
+username = 'TestUser'
+password = 'a'
+database = 'HittaResa'
+connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+                        database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
-cursor = connection.cursor()
+cursor = connection.cursor() # type db.Cursor
 
 # Använd denna när man lägger till nya bilder.
 # Ange hela url och ange rätt namn på resmålet.
-insert1 = "INSERT INTO images (location, url) values('Venedig', 'static/images/destinationsbilder-test/1.jpg');"
+insert1 = "INSERT INTO images (location, url) values('Ystad', 'static/images/destinationsbilder-test/1.jpg');"
 
 
 #insert1 = "INSERT INTO status (user_id, image_id, like_or_not) values(26, 2, 1);"
@@ -18,27 +23,26 @@ insert1 = "INSERT INTO images (location, url) values('Venedig', 'static/images/d
 cursor.execute(insert1)
 
 # Commitar anslutningen för att sedan stänga den.
-connection.commit()
-connection.close()
+connection.commit() 
 
 
 
 
 
 #Använd på gillar.html
-SELECT * FROM `images`
-JOIN status on images.image_id = status.image_id
-WHERE like_or_not = 1 AND user_id = 26 
+#SELECT * FROM `images`
+#JOIN status on images.image_id = status.image_id
+#WHERE like_or_not = 1 AND user_id = 26 
 
 
 #Använd denna för att visa upp alla bilder som inte har blivit gillade för en inloggad användare
 #Denna måste dock kopplas till rätt användare för att visa upp rätt bilder till rätt användare (26 kommer alltså ersättas med användarens ID )
-SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = 26)
+#SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = 26)
 
 
 
 #Använd på index för att visa upp alla bilder för en användare som inte är inloggad 
-SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = NULL)
+#SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = NULL)
 
 
 #index.html
@@ -49,9 +53,9 @@ SELECT * FROM `images` WHERE NOT EXISTS (SELECT * FROM status WHERE status.image
     #visa endast de bilder som är gillade (1)
         #if inloggad
             #Använd på gillar.html (ändra 26 till current_user)
-            SELECT * FROM `images`
-            JOIN status on images.image_id = status.image_id
-            WHERE like_or_not = 1 AND user_id = 26 
+            #SELECT * FROM `images`
+            #JOIN status on images.image_id = status.image_id
+            #WHERE like_or_not = 1 AND user_id = 26 
         #else
             #visa ett meddelande
 

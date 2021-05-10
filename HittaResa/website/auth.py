@@ -4,10 +4,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
-from db_connection import *
+import pyodbc 
 
 # Öppnar anslutningen till databasen.
-connection = pymysql.connect(host=database_host, user=database_user, passwd=database_password, database=database_name)
+server = 'localhost'
+username = 'TestUser'
+password = 'a'
+database = 'HittaResa'
+connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+                        database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()
@@ -81,7 +86,7 @@ def gillar():
         print(request.form['search'])
         search = request.form['search']
         try:
-            sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
+            sql = ("SELECT * FROM images JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
             cursor.execute(sql)
             data = cursor.fetchall()
             return render_template("gillar.html", user=current_user, content=data)
@@ -90,7 +95,7 @@ def gillar():
             return render_template("gillar.html", user=current_user, content=data)
             connection.close()
     else:
-        sql = ("SELECT * FROM `images` JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id)
+        sql = ("SELECT * FROM images JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id)
         cursor.execute(sql)
         data = cursor.fetchall()
         return render_template("gillar.html", user=current_user, content=data)
