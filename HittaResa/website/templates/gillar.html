@@ -38,23 +38,18 @@
                   </li>
                   <a class="d-none d-lg-block" href="/">
                     <img src="/static/images/test-logo3.png" style="height: 70px; margin-left: 20px; margin-right: 20px;" alt="HittaResa Logo">
-                 </a>
+                  </a>
                   <li class="nav-item">
-                {% if current_user.is_authenticated %}
-                <li>
-                  <a class="nav-link" href="/logout"
-                    >Logout <span class="sr-only">(current)</span></a
-                  >
-                </li>
-                {% else %}
-                <li>
-                  <a class="nav-link" href="/inloggning"
-                    >Login <span class="sr-only">(current)</span></a
-                  >
-                </li>
-                {% endif %}
-              </a>
-            </li>
+                    {% if current_user.is_authenticated %}
+                      <li>
+                        <a class="nav-link" href="/logout">Logga ut <span class="sr-only">(current)</span></a>
+                      </li>
+                      {% else %}
+                      <li>
+                        <a class="nav-link" href="/inloggning">Logga in <span class="sr-only">(current)</span></a>
+                      </li>
+                      {% endif %}
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/om">Om HittaResa</a>
                   </li>
@@ -69,9 +64,6 @@
         <div class="search">
           <form action="/gillar" method=post>
               <input type=search class="form-control rounded" placeholder="Sök" name=search value="{{ request.form.search}}"></br>
-              <!-- En knapp som kan läggas till om det behövs
-                <div class="actions"><input type=submit value="Search"></div>
-              -->
           </form>
         </div>
         
@@ -102,28 +94,17 @@
             <!-- Section: Social media -->
             <section class="mb-4">
               <!-- Facebook -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
               <!-- Twitter -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
               <!-- Google -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-google"></i
-              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
               <!-- Instagram -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-instagram"></i
-              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
               <!-- Linkedin -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
               <!-- Github -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-github"></i
-              ></a>
+              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
             </section>
           </div>
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
