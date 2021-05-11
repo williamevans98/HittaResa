@@ -4,12 +4,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
-import pyodbc 
+import pyodbc
 
 # Öppnar anslutningen till databasen.
 server = 'localhost'
 username = 'TestUser'
-password = 'a'
+password = 'ia2021'
 database = 'HittaResa'
 connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
                         database + ';UID=' + username + ';PWD=' + password)
@@ -115,6 +115,26 @@ def registrera():
 @auth.route('/om')
 def om():
     return render_template("om.html")
+
+# En route för att spara en gillning, utan att returnera en template
+@auth.route('/like', methods=['POST'])
+def image_like_or_not():
+    if request.method == 'POST':
+        location = request.form['data']
+        string = str(current_user)
+        get_last_element = string.split(' ')[-1]
+        get_user_id = get_last_element.strip('>')
+        sql = "select image_id from images where location = '" + location + "'"
+        cursor.execute(sql)
+        id = cursor.fetchone()[0]
+        status_like = "1"
+        if get_user_id != "":
+            cursor.execute("INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", get_user_id, id, status_like)
+            connection.commit()
+            
+        else:
+            pass
+        return "done"
 
 def image_like_or_not():
     string = str(current_user)

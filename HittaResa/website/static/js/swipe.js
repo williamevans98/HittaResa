@@ -78,6 +78,15 @@
                     var summary = document.getElementById(imgAlt).innerHTML;
                     var mdlText = document.getElementById("myModalText");
                     mdlText.innerHTML = summary;
+
+                    // anropa /like i auth.py och skicka med bildens titel
+                    $.ajax({
+                      type: "POST",
+                      url: "/like",
+                      data : {'data':imgAlt}
+                    }).done(function( o ) {
+                      console.log("done")
+                    });
   
                     $('#exampleModalCenter').modal("show");
                   }
@@ -110,6 +119,15 @@
                   var mdlText = document.getElementById("myModalText");
                   mdlText.innerHTML = summary;
 
+                  // anropa /like i auth.py och skicka med bildens titel
+                  $.ajax({
+                    type: "POST",
+                    url: "/like",
+                    data : {'data':imgAlt}
+                  }).done(function( o ) {
+                    console.log("done")
+                  });
+                  
                   card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
                 } else {
                   card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
