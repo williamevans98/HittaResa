@@ -138,7 +138,7 @@ article{
     transition: none;
     outline:0;
     border:none;
-    border-bottom: 1px solid #C64343;
+    border-bottom: 1px solid #76c2af;
 }
 
 #logga-in-main label {
@@ -151,7 +151,7 @@ article{
 #logga-in-main input{
     outline:0;
     border:none;
-    border-bottom: 1px solid #C64343;
+    border-bottom: 1px solid #76c2af;
 }
 
 #logga-in-main input:focus {
@@ -165,14 +165,14 @@ article{
 
 #logga-in-main .btn-primary {
     color: #fff;
-    background-color: #C64343;
-    border-color: #C64343;
+    background-color: #76c2af;
+    border-color: #76c2af;
     width: 50%;
 }
 
 #logga-in-main .btn:hover{
-    background-color: #ad3b3b;
-    border-color: #ad3b3b;
+    background-color: #6ba99a;
+    border-color: #6ba99a;
 }
 
 #logga-in-main .lösenord{
@@ -215,7 +215,7 @@ article{
     transition: none;
     outline:0;
     border:none;
-    border-bottom: 1px solid #C64343;
+    border-bottom: 1px solid #76c2af;
 }
 
 #registrera-main label {
@@ -228,7 +228,7 @@ article{
 #registrera-main input{
     outline:0;
     border:none;
-    border-bottom: 1px solid #C64343;
+    border-bottom: 1px solid #76c2af;
 }
 
 #registrera-main input:focus {
@@ -242,14 +242,14 @@ article{
 
 #registrera-main .btn-primary {
     color: #fff;
-    background-color: #C64343;
-    border-color: #C64343;
+    background-color: #76c2af;
+    border-color: #76c2af;
     width: 50%;
 }
 
 #registrera-main .btn:hover{
-    background-color: #ad3b3b;
-    border-color: #ad3b3b;
+    background-color: #6ba99a;
+    border-color: #6ba99a;
 }
 
 #registrera-main .lösenord{
