@@ -29,7 +29,7 @@ def home():
     get_last_element = string.split(' ')[-1]
     get_user_id = get_last_element.strip('>')
     print(get_user_id)
-    sql = ("SELECT * FROM images WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + ")")
+    sql = ("SELECT * FROM images WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + ") order by newid()")
     cursor.execute(sql)
     data = cursor.fetchall()
     return render_template("index.html", user=current_user, content=data)
