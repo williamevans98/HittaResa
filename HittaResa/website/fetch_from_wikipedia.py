@@ -9,14 +9,14 @@ def fetch_from_wikipedia(title):
     summary = wikipedia.summary(title, sentences=2)
     return summary
 
-import pyodbc 
+import pyodbc as db
 
 # Öppnar anslutningen till databasen.
 server = 'localhost'
 username = 'TestUser'
 password = 'a'
 database = 'HittaResa'
-connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
                         database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.

@@ -4,14 +4,14 @@ from flask_login import login_required, current_user
 from . import db
 import pymysql
 from db_connection import *
-import pyodbc
+import pyodbc as db
 
 # Öppnar anslutningen till databasen.
 server = 'localhost'
 username = 'TestUser'
 password = 'a'
 database = 'HittaResa'
-connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
                         database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.

@@ -4,14 +4,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
-import pyodbc
+import pyodbc as db
 
-# Öppnar anslutningen till databasen.
 server = 'localhost'
 username = 'TestUser'
-password = 'ia2021'
+password = 'a'
 database = 'HittaResa'
-connection = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
                         database + ';UID=' + username + ';PWD=' + password)
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
@@ -131,26 +130,6 @@ def image_like_or_not():
         if get_user_id != "":
             cursor.execute("INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", get_user_id, id, status_like)
             connection.commit()
-            
         else:
             pass
         return "done"
-
-def image_like_or_not():
-    string = str(current_user)
-    get_last_element = string.split(' ')[-1]
-    get_user_id = get_last_element.strip('>')
-    print(get_user_id)
-    status_like = "1"
-    if love:
-        if get_user_id != "":
-            sql = "INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", (get_user_id, get_image_id, status_like)
-            cursor.execute(sql)
-            data = cursor.fetchall()
-            connection.commit()
-            connection.close()
-        else:
-            pass
-    else:
-        pass
-    return fetch_image_id
