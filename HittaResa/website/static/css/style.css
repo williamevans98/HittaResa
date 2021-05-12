@@ -52,6 +52,9 @@ body{
     margin: 20px;
 }
 
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(0,0,0,.6)!important;
+}
 
 /*Allt här under tillhör gilla-sidan*/
 #main-index{
