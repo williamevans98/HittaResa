@@ -29,7 +29,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix='/')
 
     from .models import User
-    from .fetch_from_wikipedia import summaries
+    from .fetch_from_wikipedia import summaries, urls
 
     # Definierar loginManager
     user = LoginManager()
@@ -41,6 +41,7 @@ def create_app():
         return User.query.get(int(id))
 
     app.jinja_env.globals.update(summaries=summaries)
+    app.jinja_env.globals.update(urls=urls)
 
     return app
 

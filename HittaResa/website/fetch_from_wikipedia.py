@@ -1,20 +1,21 @@
 import wikipedia
 import pymysql
 from db_connection import *
+import re
 
 wikipedia.set_lang("sv")
 
 # Hämta från wikipedia
 def fetch_from_wikipedia(title):
-    summary = wikipedia.summary(title, sentences=2)
-    return summary
+    page = wikipedia.page(title=title)
+    return page
 
 import pyodbc as db
 
 # Öppnar anslutningen till databasen.
 server = 'localhost'
 username = 'TestUser'
-password = 'a'
+password = 'ia2021'
 database = 'HittaResa'
 connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
                         database + ';UID=' + username + ';PWD=' + password)
@@ -28,13 +29,24 @@ cursor.execute(sql)
 locations = cursor.fetchall()
 connection.close()
 
-# Hämta summaries från wikipedia för alla locations
-# Spara i en dictionary med location som key och summary som value
+# Hämta wikipediasidan för alla locations
+# Spara summary i en dictionary med location som key och summary som value
+# Spara url i en dictionary med location som key och summary som value
 summaries = {}
+urls = {}
 print("Fetching from wikipedia..")
 for loc in locations:
     location = loc[0]
-    summary = fetch_from_wikipedia(location)
+
+    page = fetch_from_wikipedia(location)
+
+    # Ta ut de två första meningarna från summaryn med hjälp av regular expression (re)
+    summary = ' '.join(re.split(r'(?<=[.])\s', page.summary)[:2])
+
+    # Hämta url från wikipediasidan
+    url = page.url
+
+    urls[location] = url
     summaries[location] = summary
 
 

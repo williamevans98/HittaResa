@@ -73,11 +73,14 @@
         <div class="row">
           {%for i in range(0, content|length, 1):%}
               {%for row in content[i:i+1]:%}
+              {% set title = row[1]%}
                 <div class="col-lg-6 mb-4">
                   <div class="card">
                     <img class="card-img-top" src={{row[2]}} alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">{{row[1]}}</h5>
+                      <h5 class="card-title">{{row[1]}}</h5><br>
+                      {{summaries.get(title)}}<br>
+                      <a href="{{urls.get(title)}}" target="_blank">Läs mer</a>
                     </div>
                 </div>
               </div>
