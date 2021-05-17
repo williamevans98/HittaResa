@@ -80,7 +80,13 @@
                     <div class="card-body">
                       <h5 class="card-title">{{row[1]}}</h5><br>
                       {{summaries.get(title)}}<br>
-                      <a href="{{urls.get(title)}}" target="_blank">Läs mer</a>
+                      <a href="{{urls.get(title)}}" target="_blank">Läs mer</a><br>
+                      <div class="swipe--buttons">
+                        <form name="removeform" action="/remove" method="post">
+                          <input type="hidden" name="img-title" id="img-title" value="{{title}}"/>
+                          <button id="remove"><i class="fas fa-trash"></i></button>
+                        </form>
+                      </div>
                     </div>
                 </div>
               </div>

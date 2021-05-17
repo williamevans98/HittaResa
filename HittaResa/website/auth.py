@@ -127,9 +127,38 @@ def image_like_or_not():
         cursor.execute(sql)
         id = cursor.fetchone()[0]
         status_like = "1"
+    
         if get_user_id != "":
-            cursor.execute("INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", get_user_id, id, status_like)
+            # Kolla om bilden redan finns i tabellen
+            cursor.execute("SELECT * from status where user_id = ? and image_id = ?", get_user_id, id)
+            exists = cursor.fetchone()
+            
+            if exists is None:
+                # Bilden finns inte i tabellen, lägg in den med insert
+                cursor.execute("INSERT INTO status (user_id, image_id, like_or_not) values(?, ?, ?)", get_user_id, id, status_like)
+                connection.commit()
+            else:
+                # Bilden finns i tabellen, uppdatera like_or_not till 1
+                cursor.execute("UPDATE status set like_or_not = ? where user_id = ? and image_id = ?", status_like, get_user_id, id)
+                connection.commit()
+        
+        return "done"
+
+# En route för att ta bort en gillning, redirectar sedan till /gillar-sidan
+@auth.route('/remove', methods=['POST'])
+def remove_image_like():
+    if request.method == 'POST':
+        location = request.form['img-title']
+        string = str(current_user)
+        get_last_element = string.split(' ')[-1]
+        get_user_id = get_last_element.strip('>')
+        sql = "select image_id from images where location = '" + location + "'"
+        cursor.execute(sql)
+        id = cursor.fetchone()[0]
+        status_like = "0"
+        if get_user_id != "":
+            cursor.execute("UPDATE status set like_or_not = ? where user_id = ? and image_id = ?", status_like, get_user_id, id)
             connection.commit()
         else:
             pass
-        return "done"
+        return redirect(url_for('auth.gillar'))
