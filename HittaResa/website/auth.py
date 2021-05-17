@@ -128,7 +128,8 @@ def image_like_or_not():
         id = cursor.fetchone()[0]
         status_like = "1"
     
-        if get_user_id != "":
+        # Kolla om det finns en aktiv användare och ett användarid    
+        if current_user.is_active and get_user_id != "":
             # Kolla om bilden redan finns i tabellen
             cursor.execute("SELECT * from status where user_id = ? and image_id = ?", get_user_id, id)
             exists = cursor.fetchone()
