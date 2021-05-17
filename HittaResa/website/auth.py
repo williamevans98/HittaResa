@@ -34,7 +34,7 @@ def login():
             else:
                 flash('Felaktigt lösenord, försök igen', category='error')
         else:
-            flash('Email finns inte', category='error')
+            flash('E-postadressen finns inte registrerad', category='error')
 
     return render_template("inloggning.html", user=current_user)
 
@@ -55,13 +55,13 @@ def sign_up():
 
         user = User.query.filter_by(email=email).first()
         if user:
-            flash('Email finns redan', category='error')
+            flash('E-postadressen finns redan registrerad', category='error')
         elif len(email) < 4:
-            flash('Email måste bestå av mer än 3 bokstäver', category='error')
+            flash('E-postadressen måste bestå av minst 4 tecken', category='error')
         elif password1 != password2:
             flash('Lösenord matchar inte', category='error')
         elif len(password1) < 8:
-            flash('Lösenordet måste vara mer än 8 karaktärer', category='error')
+            flash('Lösenordet måste bestå av minst 8 tecken', category='error')
         else:
             new_user = User(email=email, password=generate_password_hash(
                 password1, method='sha256'))
