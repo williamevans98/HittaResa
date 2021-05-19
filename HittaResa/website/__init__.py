@@ -6,6 +6,7 @@ from os import path
 from flask_login import LoginManager
 import wikipedia
 from db_connection import *
+import mariadb
 
 
 # Detta ska ändras
@@ -18,7 +19,7 @@ DB_NAME = "login_manager"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://TestUser:a@localhost/HittaResa?driver=SQL+Server"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://appelgren_onehittaresa:InformationsArkitekt2020@appelgren.one.mysql/appelgren_onehittaresa?driver=SQL+Server"
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.

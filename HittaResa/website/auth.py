@@ -5,13 +5,10 @@ from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
 import pyodbc as db
+import mariadb
 
-server = 'localhost'
-username = 'TestUser'
-password = 'a'
-database = 'HittaResa'
-connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
-                        database + ';UID=' + username + ';PWD=' + password)
+connection = pymysql.connect(host="appelgren.one.mysql", user="appelgren_onehittaresa", passwd="InformationsArkitekt2020", database="appelgren_onehittaresa")
+
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()
