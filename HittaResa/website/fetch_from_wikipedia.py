@@ -14,8 +14,17 @@ def fetch_from_wikipedia(title):
 import pyodbc as db
 
 # Öppnar anslutningen till databasen.
+<<<<<<< Updated upstream
 connection = pymysql.connect(host="appelgren.one.mysql", user="appelgren_onehittaresa", passwd="InformationsArkitekt2020", database="appelgren_onehittaresa")
 
+=======
+server = 'localhost'
+username = 'TestUser'
+password = 'a'
+database = 'HittaResa'
+connection = db.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' +
+                        database + ';UID=' + username + ';PWD=' + password)
+>>>>>>> Stashed changes
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()

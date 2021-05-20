@@ -5,7 +5,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <title> Hitta resa </title>
+            <title>HittaResa | Hitta dina favoritplatser från hela världen</title>
 
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -16,65 +16,71 @@
 
             <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
 
-            <link rel="shortcut icon" href="/static/images/test-logo3.png">
+            <link rel="shortcut icon" href="/static/images/icon.png" />
 
         </head>
 	
 	<body>
 		<div id="wrapper">
             <!--Navbar-->
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff;">
-              <a class="navbar-brand d-lg-none" href="/"><img src="/static/images/test-logo1.png" style="padding: 20px;" alt="HittaResa Logo"></a>
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff; box-shadow: 0 2px 10px -6px black;">
+              <a class="navbar-brand d-lg-none" href="/"><img src="/static/images/logo.png" style="padding: 20px" alt="HittaResa Logo"/></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+                <a class="d-none d-lg-block" href="/">
+                  <img src="/static/images/logo.png" style="margin-left: 40px;" alt="HittaResa Logo"/>
+                </a>
+                <ul class="navbar-nav ml-auto" style="margin-right: 40px">
                   <li class="nav-item">
                     <a class="nav-link" href="/">Hem</a>
                   </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/gillar">Mina gillningar<span class="sr-only">(current)</span></a>
-                  </li>
-                  <a class="d-none d-lg-block" href="/">
-                    <img src="/static/images/test-logo3.png" style="height: 70px; margin-left: 20px; margin-right: 20px;" alt="HittaResa Logo">
-                  </a>
                   <li class="nav-item">
-                    {% if current_user.is_authenticated %}
-                      <li>
-                        <a class="nav-link" href="/logout">Logga ut <span class="sr-only">(current)</span></a>
-                      </li>
-                      {% else %}
-                      <li>
-                        <a class="nav-link" href="/inloggning">Logga in <span class="sr-only">(current)</span></a>
-                      </li>
-                      {% endif %}
+                    <a class="nav-link active" href="/gillar">Mina gillningar</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/om">Om HittaResa</a>
                   </li>
+                  <li class="nav-item">
+                    {% if current_user.is_active %}
+                    <li>
+                      <a class="nav-link-log-in-and-out" id="log-in-and-out" href="/logout">Logga ut <span class="sr-only"></span></a>
+                    </li>
+                    {% else %}
+                    <li>
+                      <a class="nav-link-log-in-and-out" id="log-in-and-out" href="/inloggning">Logga in <span class="sr-only"></span></a>
+                    </li>
+                    {% endif %}
+                  </a>
+                </li>
                 </ul>
               </div>
             </nav>
               
-      <div id="main">
-        <h1>Gillar</h1>
-
-        <!--En sökruta för användaren att hitta olika resmål-->
-        <div class="search">
-          <form action="/gillar" method=post>
-              <input type=search class="form-control rounded" placeholder="Sök" name=search value="{{ request.form.search}}"></br>
-          </form>
+      <div id="main-gillar">
+        <div id="top-element">
+          <div id="top-element-content">
+            <h1>Hitta dina favoritplatser från hela världen</h1>
+            <!--En sökruta för användaren att hitta olika resmål-->
+            <div class="search">
+              <form action="/gillar" method=post>
+                  <input type=search class="form-control rounded" placeholder="Sök" name=search value="{{ request.form.search}}"></br>
+              </form>
+            </div>
+          </div>
         </div>
+
+        <section class="container">
         
-        <h3>Senast gillade</h3>
+        <h3 style="text-align: left; padding-bottom: 20px;">Senast gillade</h3>
 
         <!--Här ligger de olika resmålen som användaren har gillat-->
         <div class="row">
           {%for i in range(0, content|length, 1):%}
               {%for row in content[i:i+1]:%}
               {% set title = row[1]%}
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-4 mb-4">
                   <div class="card">
                     <img class="card-img-top" src={{row[2]}} alt="Card image cap">
                     <div class="card-body">
@@ -84,7 +90,8 @@
                       <div class="swipe--buttons">
                         <form name="removeform" action="/remove" method="post">
                           <input type="hidden" name="img-title" id="img-title" value="{{title}}"/>
-                          <button id="remove"><i class="fas fa-trash"></i></button>
+                          <button id="remove"><i class="fas fa-times"></i></button>
+                          <a href="https://www.flygresor.se/{{title}}"><img src="/static/images/boka-nu.png" alt="Boka nu knapp"/></a>
                         </form>
                       </div>
                     </div>
@@ -93,35 +100,19 @@
             {%endfor%}
           {%endfor%}
         </div>
+
+        </section>
       </div>
 
       <div id="footer">
         <!--Footer-->
         <footer class="bg-dark text-center text-white">
-          <!-- Grid container -->
-          <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-              <!-- Facebook -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-              <!-- Twitter -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-              <!-- Google -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
-              <!-- Instagram -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-              <!-- Linkedin -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-              <!-- Github -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
-            </section>
-          </div>
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
+            © 2021 Copyright:
             <a class="text-white" href="/">HittaResa.se</a>
           </div>
         </footer>
-      </div>    
+      </div>   
 
 		</div>
 

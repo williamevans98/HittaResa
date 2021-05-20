@@ -1,12 +1,44 @@
 /*Allt här under tillhör globala saker*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap');
+
 body{
     text-align: center;
-    background-color: lightgrey;
+    background-color: #ffffff;
+    font-family: sans-serif;
 }
 
 #wrapper {
     position: relative;
     min-height: 100vh;
+}
+
+#wrapper-index{
+    position: relative;
+    width: 100%;
+    height:100vh;
+    background-image: url(/static/images/index-bg.png);
+    background-size:cover;
+    background-attachment:fixed;
+    background-position: center center;
+}
+.how-to{
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    z-index: 1000;
+    padding-bottom: 100px;
+}
+
+.how-to img{
+    margin-top: 70px;
+    width: 90vw;
+    max-width: 520px;
+    height: 71vh;
+    border-radius: 8px;
+}
+
+.how-to #jag-förstår-knapp{
+    cursor: pointer;
 }
 
 #footer {
@@ -16,36 +48,129 @@ body{
     height: 0rem;         
 }
 
-#filter-icon{
-    width: 100%;
-    display: inline-block;
-}
-#filter-icon img{
-    float: left;
-    width: 20px;
-    height: 20px;
-}
-
 .navbar{
     padding: 0px;
+    max-height: 70px;
 }
 
-.navbar .navbar-nav .nav-link {
+
+
+@media (max-width: 992px) { 
+    .navbar{
+      padding: 0px;
+      max-height: none !important;
+    }
+
+    .navbar-nav {
+        margin-right: 0 !important;
+    }
+
+    #main-gillar > #top-element > #top-element-content h1{
+        font-size: 4rem !important;
+    }
+
+    .search .form-control {
+        width: 100% !important;
+    }
+
+    .navbar .navbar-nav .nav-link-log-in-and-out {
+      line-height: 70px !important;
+      background: none !important;
+      padding: none !important;
+      border-radius: none !important;
+      color: #000000 !important;
+      text-transform: none!important;
+      font-size: 1.3em !important;
+      font-weight: normal !important;
+    }
+    
+    .navbar .navbar-nav .nav-link-log-in-and-out:hover{
+      text-decoration: none !important;
+      background-color: none !important;
+      color: #00B4C8 !important;
+    }
+
+    .container h4{
+        color: #2C2C2C;
+    }
+      
+    .left {
+        width: 100% !important;
+    }
+    
+    .left img{
+        display: none;
+    }
+      
+    .right {
+        width: 100% !important;
+        margin-left: 0% !important;
+    }
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        position: relative;
+        width: 50%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* For mobile phones: */
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    #wrapper-index{
+        background-image: none;
+    }
+  }
+
+  .navbar .navbar-nav .nav-link {
     color: #000000;
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-left: 10px;
     margin-right: 10px;
-    line-height: 86px;
+    line-height: 70px;
+    font-weight: 500;
+  }
+  
+  .navbar .navbar-nav .nav-link-log-in-and-out {
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 89px;
+    background-color: #00B4C8;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    color: #ffff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
 }
+  
+  .navbar .navbar-nav .nav-link-log-in-and-out:hover{
+    text-decoration: none !important;
+    background-color: #008b9b;
+  }
+  
+  
+  .navbar .navbar-nav .nav-link:hover{
+      color: #008b9b;
+  }
+  
+  
+  .d-lg-block {
+      line-height: 70px;
+  }
+  
 .navbar .navbar-nav .nav-link:hover{
-    color: #808080;
+    color: #008b9b;
 }
 .navbar-logo-centered .navbar-nav .nav-link{
     padding: .5em 1em;
-}
-
-.d-lg-block {
-    line-height: 100px;
 }
 
 .navbar-light .navbar-toggler {
@@ -53,41 +178,56 @@ body{
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: rgba(0,0,0,.6)!important;
+    color: #00B4C8!important;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
-
 /*Allt här under tillhör gilla-sidan*/
-#main-index{
-    display: inline-block;
+
+#main-gillar > #top-element{
+    background-color: #F1F1F1;
+    width: 100%;
+}
+
+#main-gillar h3{
+    font-family: 'Source Sans Pro';
+}
+
+#main-gillar > #top-element > #top-element-content{
+    max-width: 1000px;
     width: 90%;
     margin: auto;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    max-width: 1000px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-#main{
-    display: inline-block;
-    width: 90%;
+#main-gillar > #top-element > #top-element-content h1{
+    font-size: 5rem;
+    font-family: 'Source Sans Pro';
+}
+
+.search {
+    padding-top: 50px;
+}
+
+.search .form-control {
+    display: block;
+    width: 70%;
     margin: auto;
-    margin-bottom: 50px;
-    max-width: 1000px;
-}
-
-#main h1{
-    text-align: left;
-    color:white;
-    margin-top: 20px;
-}
-
-#main h3{
-    text-align: left;
-    color:white;
-    margin-top: 20px;
+    height: 60px;
+    padding: .375rem .75rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 25rem !important;
+    transition: none;
+    outline:0;
+    border: 2px solid #00B4C8;
 }
 
 .card{
-    margin-bottom: 50px;
     border-radius: 5%;
 }
 
@@ -95,7 +235,7 @@ body{
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     border-radius: 5% 5% 0% 0%;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 
@@ -113,20 +253,101 @@ article{
     color: black; 
 }
 
+#main > #top-element{
+    background-color: #F1F1F1;
+    width: 100%;
+}
 
-/*Allt här under tillhör logga in-sidan*/
-#logga-in-main{
-    display: inline-block;
+#main > #top-element > #top-element-content{
+    max-width: 1000px;
     width: 90%;
     margin: auto;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#main > #top-element > #top-element-content h1{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#main > #top-element > #top-element-content img{
+    margin-top: 40px;
+}
+
+#main > #top-element > #top-element-content .txt{
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    color: #5c5c5c;
+}
+
+.container {
     max-width: 1000px;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.container h4{
+    color: #2C2C2C;
+}
+  
+.left {
+    width: 45%;
+    float: left;
+    text-align: left;
+}
+
+.left p{
+    color: #5C5C5C;
+}
+
+
+.left img{
+    width: 100%;
+}
+  
+.right {
+    width: 45%;
+    margin-left: 55%;
+    text-align: left;
+}
+
+.right p{
+    color: #5C5C5C;
+}
+
+
+
+
+/*Allt här under tillhör logga in-sidan*/
+#login-form{
+    background-color: #ffffff;
+    border-radius: 20px;
+    max-width: 450px;
+    margin: auto;
+    margin-top:10vh;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+#logga-in-main{
+    display: inline-block;
+    width: 100%;
+    height:95vh;
+    background-image: url(/static/images/login-bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/login-bg.jpg');
+    background-size:cover;
+    background-attachment:fixed;
 }
 
 #logga-in-main .form-control {
     display: block;
-    width: 50%;
+    width: 70%;
     margin: auto;
     margin-bottom: 1rem;
     height: calc(1.5em + .75rem + 2px);
@@ -134,14 +355,39 @@ article{
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: lightgrey;
+    background-color: #fff;
     background-clip: padding-box;
     border-radius: 0%;
     transition: none;
     outline:0;
     border:none;
-    border-bottom: 1px solid #76c2af;
+    border-bottom: 2px solid #000;
+}
+
+#logga-in-main h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+}
+
+#logga-in-main a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: unset;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#logga-in-main p {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#logga-in-main a:hover {
+    color: #005ab9;
+    text-decoration: none;
 }
 
 #logga-in-main label {
@@ -154,7 +400,7 @@ article{
 #logga-in-main input{
     outline:0;
     border:none;
-    border-bottom: 1px solid #76c2af;
+    border-bottom: 1px solid #000;
 }
 
 #logga-in-main input:focus {
@@ -162,48 +408,51 @@ article{
     box-shadow: none !important;
 }
 
+#logga-in-main button, #logga-in-main input[type="submit"] {
+    background:url(/static/images/logga-in.png) no-repeat;
+    width: 162px;
+    height: 52px;
+    border-bottom: none !important;
+    padding: 0px;
+}
+
+#logga-in-main .form-group {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
 #logga-in-main .form-control:focus {
-    background-color: lightgrey;
-}
-
-#logga-in-main .btn-primary {
-    color: #fff;
-    background-color: #76c2af;
-    border-color: #76c2af;
-    width: 50%;
-}
-
-#logga-in-main .btn:hover{
-    background-color: #6ba99a;
-    border-color: #6ba99a;
-}
-
-#logga-in-main .lösenord{
-    width: 50%;
-    margin: auto;
-    text-align: right;
-    text-decoration: underline;
+    background-color: #fff;
 }
 
 #logga-in-main p{
     margin-bottom: 0px;
 }
 
-
 /*Allt här under tillhör registrera-sidan*/
+#login-form{
+    background-color: #ffffff;
+    border-radius: 20px;
+    max-width: 450px;
+    margin: auto;
+    margin-top:10vh;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
 #registrera-main{
     display: inline-block;
-    width: 90%;
-    margin: auto;
-    margin-bottom: 0px;
-    margin-top: 50px;
-    max-width: 1000px;
-    padding-bottom: 174px;
+    width: 100%;
+    height:95vh;
+    background-image: url(/static/images/login-bg.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/images/login-bg.jpg');
+    background-size:cover;
+    background-attachment:fixed;
 }
 
 #registrera-main .form-control {
     display: block;
-    width: 50%;
+    width: 70%;
     margin: auto;
     margin-bottom: 1rem;
     height: calc(1.5em + .75rem + 2px);
@@ -211,14 +460,39 @@ article{
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: lightgrey;
+    background-color: #fff;
     background-clip: padding-box;
     border-radius: 0%;
     transition: none;
     outline:0;
     border:none;
-    border-bottom: 1px solid #76c2af;
+    border-bottom: 2px solid #000;
+}
+
+#registrera-main h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-transform: uppercase;
+}
+
+#registrera-main a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: unset;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#registrera-main p {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#registrera-main a:hover {
+    color: #005ab9;
+    text-decoration: none;
 }
 
 #registrera-main label {
@@ -231,7 +505,7 @@ article{
 #registrera-main input{
     outline:0;
     border:none;
-    border-bottom: 1px solid #76c2af;
+    border-bottom: 1px solid #000;
 }
 
 #registrera-main input:focus {
@@ -239,35 +513,26 @@ article{
     box-shadow: none !important;
 }
 
+#registrera-main button, #registrera-main input[type="submit"] {
+    background:url(/static/images/registrera.png) no-repeat;
+    width: 162px;
+    height: 52px;
+    border-bottom: none !important;
+    padding: 0px;
+}
+
+#registrera-main .form-group {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
 #registrera-main .form-control:focus {
-    background-color: lightgrey;
-}
-
-#registrera-main .btn-primary {
-    color: #fff;
-    background-color: #76c2af;
-    border-color: #76c2af;
-    width: 50%;
-}
-
-#registrera-main .btn:hover{
-    background-color: #6ba99a;
-    border-color: #6ba99a;
-}
-
-#registrera-main .lösenord{
-    width: 50%;
-    margin: auto;
-    text-align: right;
-    text-decoration: underline;
+    background-color: #fff;
 }
 
 #registrera-main p{
     margin-bottom: 0px;
 }
-
-
-
 
 
 /*Allt här under tillhör swipe*/
@@ -311,7 +576,7 @@ article{
     transform: scale(1);
   }
   
-  .swipe_nope .fa-trash {
+  .swipe_nope .fa-times {
     opacity: 0.7;
     transform: scale(1);
   }
@@ -340,6 +605,7 @@ article{
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: grab;
+    box-shadow: 0px 2px 10px 0.1px;
   }
   
   .moving.swipe--card {
@@ -383,6 +649,7 @@ article{
     background: #FFFFFF;
     display: inline-block;
     margin: 0 8px;
+    box-shadow: 0px 0px 5px 0.1px;
   }
 
   .swipe--buttons button:hover {
@@ -399,19 +666,24 @@ article{
   }
   
   .fa-heart {
-    color: #FFACE4;
+    color: #3bdfcc;
+    display: block;
+    background: -webkit-linear-gradient(#3bdfcc, #00b4c8, #2ea4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
-  .fa-remove {
-    color: #CDD6DD;
+  .fa-times {
+    color: #ff0022;
   }
 
 /*Allt här under tillhör styling av Flash-meddelande*/
     
 .flash {
     display: block;
-    width: 50%;
+    width: 90%;
     margin: auto;
     color: #c01919;
-    background-color:#cccccc;
+    background-color:#fff;
+    margin-top: 20px;
 }  

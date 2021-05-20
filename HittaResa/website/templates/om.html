@@ -5,7 +5,7 @@
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <title> Hitta resa </title>
+            <title>Se varför HittaResa är världens bästa inspirationsapp till resor | Tinder</title>
 
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -14,93 +14,131 @@
 
             <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
 
-            <link rel="shortcut icon" href="/static/images/test-logo3.png">
+            <link rel="shortcut icon" href="/static/images/icon.png" />
 
         </head>
 	
 	<body>
 		<div id="wrapper">
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff">
-        <a class="navbar-brand d-lg-none" href="/"><img src="/static/images/test-logo1.png" style="padding: 20px" alt="HittaResa Logo"/></a>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffff; box-shadow: 0 2px 10px -6px black;">
+        <a class="navbar-brand d-lg-none" href="/"><img src="/static/images/logo.png" style="padding: 20px" alt="HittaResa Logo"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
+          <a class="d-none d-lg-block" href="/">
+            <img src="/static/images/logo.png" style="margin-left: 40px;" alt="HittaResa Logo"/>
+          </a>
+          <ul class="navbar-nav ml-auto" style="margin-right: 40px">
             <li class="nav-item">
               <a class="nav-link" href="/">Hem</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/gillar">Mina gillningar</a>
             </li>
-            <a class="d-none d-lg-block" href="/">
-              <img src="/static/images/test-logo3.png" style="height: 70px; margin-left: 20px; margin-right: 20px" alt="HittaResa Logo"/>
-            </a>
-            <li class="nav-item">{% if current_user.is_authenticated %}</li>
-            <li>
-              <a class="nav-link" href="/logout">Logga ut <span class="sr-only"></span></a>
-            </li>
-            {% else %}
-            <li>
-              <a class="nav-link" href="/inloggning">Logga in <span class="sr-only"></span></a>
-            {% endif %}
-            </li>
             <li class="nav-item active">
               <a class="nav-link" href="/om">Om HittaResa</a>
             </li>
+            <li class="nav-item">
+              {% if current_user.is_active %}
+              <li>
+                <a class="nav-link-log-in-and-out" id="log-in-and-out" href="/logout">Logga ut <span class="sr-only"></span></a>
+              </li>
+              {% else %}
+              <li>
+                <a class="nav-link-log-in-and-out" id="log-in-and-out" href="/inloggning">Logga in <span class="sr-only"></span></a>
+              </li>
+              {% endif %}
+            </a>
+          </li>
           </ul>
         </div>
       </nav>
               
 			<div id="main">
-        <article>
-          <h2>Om HittaResa</h2>
-          <br>
-          <h5>Hur går det till?</h5>
-          <p>Tanken är att du som användare ska kunna spara intressanta bilder på resmål till din engna inspirationsbank. 
-            För detta krävs det att du skapar ett konto och loggar in. Väl inloggad kan presenteras du bilder på resmål. 
-            Här kan du välja att ogilla, vilket betyder att bilden inte syns mer, eller så gillar du bilden och den hamnar
-            i din katalog. Du kan antingen välja knapparna nedtill eller med fingerrörelser skicka bilden vidare. 
+        <div id="top-element">
+          <div id="top-element-content">
+            <h1>Varför välja en app som HittaResa?</h1>
+          <p>
+            <div class="txt">
+              I resevärlden finns flera alternativ att välja på – som Paris, London, Bangkok, Sydney och 
+              New York. Oavsett vad du är ute efter – utforska, vandra eller bara ta det lugnt och sola 
+              lite – så vill du hitta ett resmål som känns rätt för dig. Gränserna är ibland flytande, så när 
+              du vill hitta nya resmål kan dina vänner på HittaResa hjälpa dig, med funktioner som gör 
+              det omöjliga möjligt. Nu är det ännu enklare att hitta nya resmål på nätet.
+              <br>
+              <br>
+              Vi säger inte att vi är den bästa gratissajten, utan låter dig bestämma själv genom 
+              att presentera HittaResa i överblick.
+            </div>
           </p>
-          <br>
-          <h5>Projektbeskrivning:</h5>
-          <p>HittaResa är en webbaserad applikation som är tänkt att ge människor inspiration på olika resmål runtom i världen. 
-            Applikationen fungerar på så sätt att en användare möts av bilder som representerar olika resmål där man får valmöjligheten 
-            att gilla eller inte gilla bilden. Om man som användare inte gillar bilden möts man av en ny bild. Gillar man bilden kommer man 
-            vidare för att kunna läsa mer information om den gillade destinationen.
-            <br><br>Webbapplikationen ska göras mobilanpassad/responsiv till 
-            mobiltelefoner för att kunna nå ut till så många användare som möjligt. Man ska kunna använda webbapplikationen utan att behöva registrera sig. 
-            Väljer man att registrera sig och logga in sparas de resmålen man har gillat i en… så att man kan gå in och läsa mer om just det resmålet.
-            <br><br>
-             Version 1.0
-          </p>
-        </article>   
+          <a href="/"><img src="/static/images/utforska.png" alt="Utforska knapp"/></a>
+          </div>
+        </div>
+
+        <section class="container">
+          <div class="left">
+            <h4>Utforska dina Intressen</h4>
+            <p>
+              Det är enkelt att hitta ett nytt resmål när man inte vet vad
+              man är ute efter. På HittaResa kan du utforska resmål du 
+              aldrig trodde fanns. HittaResa ger dig möjligheten att
+              utforska dina intressen och uforska världen.
+            </p>
+            <br>
+            <img src="/static/images/travel-img.png" alt="HittaResa Logo"/>
+          </div>
+  
+          <div class="right">
+            <h4>Ta med oss överallt</h4>
+            <p>
+              När du vill få inspiration med destinationer lite varstans 
+              i världen, från Sydney till Stockholm, så finns det en app 
+              för det, och den heter HittaResa. Hitta destinationer i när 
+              och fjärran, tack vare funktioner som gör att du kan matcha 
+              upptäcka världen. HittaResa är din reskamrat.
+            </p>
+            <br>
+            <br>
+            <h4>Nya resmål alltid nära till hands</h4>
+            <p>
+              Ett av de viktigaste besluten som du gör är att välja en 
+              destination som kan erbjuda mer än du kunde tro. Och 
+              det handlar inte bara om att välja mellan till exempel 
+              New York och London. Att upptäcka mindre städer är en 
+              resa. HittaResa är din samarbetspartner när det gäller 
+              oupptäckta resmål.
+            </p>
+            <br>
+            <br>
+            <h4>Ändlösa möjligheter</h4>
+            <p>
+              Med över 190 länder i världen vet vi en hel del om hur man 
+              hjälper människor att hitta nya destinationer. På HittaResa 
+              handlar det mer om att skapa upplevelser och möjligheter, 
+              oavsett vad du söker.
+            </p>
+            <br>
+            <br>
+            <h4>Gör så att varje gillning räknas</h4>
+            <p>
+              Genom att gilla ett resmål kan du snabbt och enkelt komma
+              vidare till ett resebolag där du kan boka din nästa resa.
+            </p>
+          </div>
+
+          <a href="/"><img src="/static/images/kom-igång.png" alt="Kom igång knapp" style="margin-top: 50px; margin-bottom: 40px;"/></a>
+
+        </section>
+
       </div>
 
       <div id="footer">
         <!--Footer-->
         <footer class="bg-dark text-center text-white">
-          <!-- Grid container -->
-          <div class="container p-4 pb-0">
-            <!-- Section: Social media -->
-            <section class="mb-4">
-              <!-- Facebook -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-              <!-- Twitter -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-              <!-- Google -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
-              <!-- Instagram -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-              <!-- Linkedin -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
-              <!-- Github -->
-              <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
-            </section>
-          </div>
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
+            © 2021 Copyright:
             <a class="text-white" href="/">HittaResa.se</a>
           </div>
         </footer>

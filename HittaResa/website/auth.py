@@ -40,7 +40,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('views.home'))
 
 # Hämtar alla fält och registrerar användaren
 @auth.route('/registrera', methods=['POST'])
