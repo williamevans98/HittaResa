@@ -1,10 +1,9 @@
 import pymysql
 import pyodbc as db
-import mariadb
 
 # Öppnar anslutningen till databasen.
 
-connection = pymysql.connect(host="appelgren.one.mysql", user="appelgren_onehittaresa", passwd="InformationsArkitekt2020", database="appelgren_onehittaresa")
+connection = pymysql.connect(host="sql11.freemysqlhosting.net",user="sql11413883",passwd="2t3rFh95M7",database="sql11413883")
 
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
@@ -23,7 +22,7 @@ cursor.execute(insert1)
 # Commitar anslutningen för att sedan stänga den.
 connection.commit() 
 
-
+connection.close()
 
 
 

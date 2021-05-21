@@ -6,7 +6,6 @@ from os import path
 from flask_login import LoginManager
 import wikipedia
 from db_connection import *
-import mariadb
 
 
 # Detta ska ändras
@@ -19,7 +18,7 @@ DB_NAME = "login_manager"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mssql+pyodbc://appelgren_onehittaresa:InformationsArkitekt2020@appelgren.one.mysql/appelgren_onehittaresa?driver=SQL+Server"
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11413883:2t3rFh95M7@sql11.freemysqlhosting.net/sql11413883'
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
@@ -43,8 +42,5 @@ def create_app():
 
     app.jinja_env.globals.update(summaries=summaries)
     app.jinja_env.globals.update(urls=urls)
-
+    
     return app
-
-    session.close()
-    engine.dispose()

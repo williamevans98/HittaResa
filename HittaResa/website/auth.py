@@ -4,10 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
-import pyodbc as db
-import mariadb
 
-connection = pymysql.connect(host="appelgren.one.mysql", user="appelgren_onehittaresa", passwd="InformationsArkitekt2020", database="appelgren_onehittaresa")
+connection = pymysql.connect(host="sql11.freemysqlhosting.net",user="sql11413883",passwd="2t3rFh95M7",database="sql11413883")
 
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
@@ -32,7 +30,7 @@ def login():
                 flash('Felaktigt lösenord, försök igen', category='error')
         else:
             flash('E-postadressen finns inte registrerad', category='error')
-
+    connection.close()
     return render_template("inloggning.html", user=current_user)
 
 # Loggar ut användaren
@@ -40,6 +38,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    connection.close()
     return redirect(url_for('views.home'))
 
 # Hämtar alla fält och registrerar användaren
@@ -66,8 +65,9 @@ def sign_up():
             db.session.commit()
             #login_user(new_user, remember=False)
             flash('Konto skapat!', category='success')
+            connection.close()
             return redirect(url_for('views.home'))
-
+    connection.close()
     return render_template("registrera.html")
 
 # En route till gillar-sidan
@@ -85,31 +85,34 @@ def gillar():
             sql = ("SELECT * FROM images JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
             cursor.execute(sql)
             data = cursor.fetchall()
-            return render_template("gillar.html", user=current_user, content=data)
             connection.close()
+            return render_template("gillar.html", user=current_user, content=data)
         except:
-            return render_template("gillar.html", user=current_user, content=data)
             connection.close()
+            return render_template("gillar.html", user=current_user, content=data)
     else:
         sql = ("SELECT * FROM images JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id)
         cursor.execute(sql)
         data = cursor.fetchall()
-        return render_template("gillar.html", user=current_user, content=data)
         connection.close()
+        return render_template("gillar.html", user=current_user, content=data)
 
 # En route till inloggningssidan
 @auth.route('/inloggning')
 def inloggning():
+    connection.close()
     return render_template("inloggning.html")
 
 # En route till registrera-sidan
 @auth.route('/registrera')
 def registrera():
+    connection.close()
     return render_template("registrera.html")
 
 # En route till om-sidan
 @auth.route('/om')
 def om():
+    connection.close()
     return render_template("om.html")
 
 # En route för att spara en gillning, utan att returnera en template
@@ -139,7 +142,7 @@ def image_like_or_not():
                 # Bilden finns i tabellen, uppdatera like_or_not till 1
                 cursor.execute("UPDATE status set like_or_not = ? where user_id = ? and image_id = ?", status_like, get_user_id, id)
                 connection.commit()
-        
+        connection.close()
         return "done"
 
 # En route för att ta bort en gillning, redirectar sedan till /gillar-sidan
@@ -157,6 +160,8 @@ def remove_image_like():
         if get_user_id != "":
             cursor.execute("UPDATE status set like_or_not = ? where user_id = ? and image_id = ?", status_like, get_user_id, id)
             connection.commit()
+            connection.close()
         else:
             pass
+        connection.close()
         return redirect(url_for('auth.gillar'))
