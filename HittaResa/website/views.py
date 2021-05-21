@@ -19,11 +19,13 @@ views = Blueprint('views', __name__)
 
 # Hämtar bild-länken från databasen och returnerar den som "data"
 def home():
+    connection = pymysql.connect(host="sql11.freemysqlhosting.net",user="sql11413883",passwd="2t3rFh95M7",database="sql11413883")
+    cursor = connection.cursor()
     string = str(current_user)
     get_last_element = string.split(' ')[-1]
     get_user_id = get_last_element.strip('>')
     print(get_user_id)
-    sql = ("SELECT * FROM images WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + " AND status.like_or_not = 1) order by newid()")
+    sql = ("SELECT * FROM images WHERE NOT EXISTS (SELECT * FROM status WHERE status.image_id = images.image_id AND status.user_id = " + get_user_id + " AND status.like_or_not = 1) ORDER BY rand()")
     cursor.execute(sql)
     data = cursor.fetchall()
     connection.close()
