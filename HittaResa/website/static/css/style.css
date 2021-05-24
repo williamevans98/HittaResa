@@ -246,7 +246,7 @@ body{
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
     border-radius: 5% 5% 0% 0%;
-    max-height: 400px;
+    height: 350px;
 }
 
 
