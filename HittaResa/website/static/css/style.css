@@ -35,9 +35,6 @@ body{
     max-width: 520px;
     height: 71vh;
     border-radius: 8px;
-}
-
-.how-to #jag-förstår-knapp{
     cursor: pointer;
 }
 

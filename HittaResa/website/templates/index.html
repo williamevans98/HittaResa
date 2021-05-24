@@ -63,10 +63,7 @@
       <div class="how-to">
         {% if current_user.is_active %}
         {% else %}
-        <img src="/static/images/how-to-use.png" alt="HittaResa Logo" id="how-to-img" usemap="#how-to-map"/>
-        <map name="how-to-map" id="jag-förstår-knapp">
-          <area shape="rect" coords="147,467,365,415" alt="jag-förstår">
-        </map>
+        <img src="/static/images/how-to-use.png" alt="HittaResa Logo" id="how-to-img"/>
         {% endif %}
       </div>
 
@@ -141,7 +138,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script>
-      $(document).on('click','#jag-förstår-knapp',function(){
+      $(document).on('click','#how-to-img',function(){
         $('#how-to-img').remove();
       });
     </script>
