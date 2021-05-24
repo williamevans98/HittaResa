@@ -45,7 +45,7 @@ for loc in locations:
     url = page.url
 
     urls[location] = url
-    summaries[location] = summary
+    summaries[location] = ('%.150s' % summary)
 
 connection.close()
 
