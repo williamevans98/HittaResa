@@ -75,6 +75,11 @@
         
         <h3 style="text-align: left; padding-bottom: 20px;">Senast gillade</h3>
 
+        {% if current_user.is_active %}
+        {% else %}
+        <h5 style="text-align: left;">Du måste vara inloggad för att se dina gillade resmål.</h5>
+        {% endif %}
+
         <!--Här ligger de olika resmålen som användaren har gillat-->
         <div class="row">
           {%for i in range(0, content|length, 1):%}
