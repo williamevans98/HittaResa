@@ -6,10 +6,13 @@ import pyodbc
 
 wikipedia.set_lang("sv")
 
+# Skapar en connection till databasen
 connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
 
 def fetch_from_wikipedia(title):
-    '''Hämta från wikipedia.'''
+    '''
+    Hämtar information från wikipedia för att sedan skriva ut rätt information på rätt location.
+    '''
     page = wikipedia.page(title=title)
     return page
 
@@ -21,15 +24,9 @@ sql = ("SELECT location from images")
 cursor.execute(sql)
 locations = cursor.fetchall()
 
-
-'''
-Hämta wikipediasidan för alla locations.
-
-Spara summary i en dictionary med location som key och summary som value.
-
-Spara url i en dictionary med location som key och summary som value.
-   
-'''
+# Hämtar wikipediasidan för alla locations.
+# Sparar summary i en dictionary med location som key och summary som value.
+# Sparar url i en dictionary med location som key och summary som value.
 summaries = {}
 urls = {}
 print("Fetching from wikipedia..")

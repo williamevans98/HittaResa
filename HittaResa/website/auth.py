@@ -17,7 +17,9 @@ auth = Blueprint('auth', __name__)
 
 @auth.route('/inloggning', methods=['GET', 'POST'])
 def login():
-    '''Hämtar alla fält och försöker logga in användaren'''
+    '''
+    Hämtar alla fält och försöker logga in användaren
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     if request.method == 'POST':
         email = request.form.get('email')
@@ -40,7 +42,9 @@ def login():
 @auth.route('/logout')
 @login_required
 def logout():
-    '''Loggar ut användaren'''
+    '''
+    Loggar ut användaren
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     logout_user()
     connection.close()
@@ -48,9 +52,10 @@ def logout():
 
 @auth.route('/registrera', methods=['POST'])
 def sign_up():
-    '''Hämtar alla fält och registrerar användaren'''
+    '''
+    Hämtar alla fält och registrerar användaren
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
-    #if request.method == 'POST':
     email = request.form.get('email')
     password1 = request.form.get('password1')
     password2 = request.form.get('password2')
@@ -111,31 +116,38 @@ def gillar():
 
 @auth.route('/inloggning')
 def inloggning():
-    '''En route till inloggningssidan.'''
+    '''
+    En route till inloggningssidan.
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     connection.close()
     return render_template("inloggning.html")
 
 @auth.route('/registrera')
 def registrera():
-    '''En route till registrera-sidan.'''
+    '''
+    En route till registrera-sidan.
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     connection.close()
     return render_template("registrera.html")
 
 @auth.route('/om')
 def om():
-    '''En route till om-sidan.'''
+    '''
+    En route till om-sidan.
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     connection.close()
     return render_template("om.html")
 
 @auth.route('/like', methods=['POST'])
 def image_like_or_not():
-    '''En route för att spara en gillning, utan att returnera en template.'''
+    '''
+    En route för att spara en gillning, utan att returnera en template.
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     cursor = connection.cursor()
-    #if request.method == 'POST':
     location = request.form['data']
     string = str(current_user)
     get_last_element = string.split(' ')[-1]
@@ -164,10 +176,11 @@ def image_like_or_not():
 
 @auth.route('/remove', methods=['POST'])
 def remove_image_like():
-    '''En route för att ta bort en gillning, redirectar sedan till /gillar-sidan.'''
+    '''
+    En route för att ta bort en gillning, redirectar sedan till /gillar-sidan.
+    '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     cursor = connection.cursor()
-    #if request.method == 'POST':
     location = request.form['img-title']
     string = str(current_user)
     get_last_element = string.split(' ')[-1]

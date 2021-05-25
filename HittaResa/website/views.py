@@ -6,20 +6,19 @@ import pymysql
 from db_connection import *
 import pyodbc 
 
-connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
-
-# Förbereder ett "cursor" objekt genom att använda cursor() metoden.
-cursor = connection.cursor()
-
 # Definierar views som blueprints för att vi ska kunna använda det som templates
 views = Blueprint('views', __name__)
 
 # Routar hem när de är inloggade
 @views.route('/', methods=['GET', 'POST'])  
 
-# Hämtar bild-länken från databasen och returnerar den som "data"
 def home():
+    '''
+    Hämtar bild-länken från databasen och returnerar den som "data".
+    '''
+    # Skapar en connection till databasen
     connection = pymysql.connect(host="sql11.freemysqlhosting.net",user="sql11413883",passwd="2t3rFh95M7",database="sql11413883")
+    # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
     cursor = connection.cursor()
     string = str(current_user)
     get_last_element = string.split(' ')[-1]

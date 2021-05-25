@@ -12,13 +12,13 @@ from db_connection import *
 db = SQLAlchemy()
 DB_NAME = "login_manager"
 
-# Scriptet som fixar databasen
-
-
 def create_app():
+    '''
+    Connectar flask till de olika delarna i programmet.
+    '''
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'admin'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://sql11413883:2t3rFh95M7@sql11.freemysqlhosting.net/sql11413883'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://' + database_name + ':' + database_password + '@' + database_host + '/' + database_user + ''
     db.init_app(app)
 
     # Importerar allt från template, static o.s.v.
