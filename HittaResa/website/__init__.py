@@ -1,14 +1,10 @@
-# Import av funktioner som vi använder
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import sessionmaker
-from os import path
 from flask_login import LoginManager
 import wikipedia
 from db_connection import *
 
 
-# Detta ska ändras
 db = SQLAlchemy()
 DB_NAME = "login_manager"
 
@@ -31,13 +27,17 @@ def create_app():
     from .models import User
     from .fetch_from_wikipedia import summaries, urls
 
-    # Definierar loginManager
+    # Definierar loginManager.
     user = LoginManager()
     user.login_view = 'auth.login'
     user.init_app(app)
 
+
     @user.user_loader
     def load_user(id):
+        '''
+        Hämtar ID från användaren via user_loader.
+        '''
         return User.query.get(int(id))
 
     app.jinja_env.globals.update(summaries=summaries)

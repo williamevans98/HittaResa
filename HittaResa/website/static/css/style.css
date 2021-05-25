@@ -12,32 +12,6 @@ body{
     min-height: 100vh;
 }
 
-#wrapper-index{
-    position: relative;
-    width: 100%;
-    height:100vh;
-    background-image: url(/static/images/index-bg.png);
-    background-size:cover;
-    background-attachment:fixed;
-    background-position: center center;
-}
-.how-to{
-    width: 100%;
-    margin: auto;
-    position: absolute;
-    z-index: 1000;
-    padding-bottom: 100px;
-}
-
-.how-to img{
-    margin-top: 70px;
-    width: 90vw;
-    max-width: 520px;
-    height: 71vh;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
 #footer {
     position: absolute;
     bottom: 0;
@@ -50,92 +24,16 @@ body{
     max-height: 70px;
 }
 
-
-
-@media (max-width: 992px) { 
-    .navbar{
-      padding: 0px;
-      max-height: none !important;
-    }
-
-    .navbar-nav {
-        margin-right: 0 !important;
-    }
-
-    #main-gillar > #top-element > #top-element-content h1{
-        font-size: 4rem !important;
-    }
-
-    .search .form-control {
-        width: 100% !important;
-    }
-
-    .navbar .navbar-nav .nav-link-log-in-and-out {
-      line-height: 70px !important;
-      background: none !important;
-      padding: none !important;
-      border-radius: none !important;
-      color: #000000 !important;
-      text-transform: none!important;
-      font-size: 1.3em !important;
-      font-weight: normal !important;
-    }
-    
-    .navbar .navbar-nav .nav-link-log-in-and-out:hover{
-      text-decoration: none !important;
-      background-color: none !important;
-      color: #00B4C8 !important;
-    }
-
-    .container h4{
-        color: #2C2C2C;
-    }
-      
-    .left {
-        width: 100% !important;
-    }
-    
-    .left img{
-        display: none;
-    }
-      
-    .right {
-        width: 100% !important;
-        margin-left: 0% !important;
-    }
-
-    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
-        position: relative;
-        width: 50%;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-
-  }
-
-  @media only screen and (max-width: 600px) {
-    /* For mobile phones: */
-    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
-        position: relative;
-        width: 100%;
-        padding-right: 15px;
-        padding-left: 15px;
-    }
-    #wrapper-index{
-        background-image: none;
-    }
-  }
-
-  .navbar .navbar-nav .nav-link {
+.navbar .navbar-nav .nav-link {
     color: #000000;
     font-size: 1.3em;
     margin-left: 10px;
     margin-right: 10px;
     line-height: 70px;
     font-weight: 500;
-  }
+}
   
-  .navbar .navbar-nav .nav-link-log-in-and-out {
+.navbar .navbar-nav .nav-link-log-in-and-out {
     margin-left: 10px;
     margin-right: 10px;
     line-height: 89px;
@@ -148,24 +46,25 @@ body{
     font-size: 16px;
 }
   
-  .navbar .navbar-nav .nav-link-log-in-and-out:hover{
+.navbar .navbar-nav .nav-link-log-in-and-out:hover{
     text-decoration: none !important;
     background-color: #008b9b;
-  }
+}
   
-  
-  .navbar .navbar-nav .nav-link:hover{
-      color: #008b9b;
-  }
-  
-  
-  .d-lg-block {
-      line-height: 70px;
-  }
   
 .navbar .navbar-nav .nav-link:hover{
     color: #008b9b;
 }
+  
+  
+.d-lg-block {
+    line-height: 70px;
+}
+  
+.navbar .navbar-nav .nav-link:hover{
+    color: #008b9b;
+}
+
 .navbar-logo-centered .navbar-nav .nav-link{
     padding: .5em 1em;
 }
@@ -179,8 +78,17 @@ body{
     text-decoration: underline;
     text-decoration-thickness: 3px;
 }
-/*Allt här under tillhör gilla-sidan*/
 
+.flash {
+    display: block;
+    width: 90%;
+    margin: auto;
+    color: #c01919;
+    background-color:#fff;
+    margin-top: 20px;
+} 
+
+/*Allt här under tillhör gilla-sidan*/
 #main-gillar > #top-element{
     background-color: #F1F1F1;
     width: 100%;
@@ -251,19 +159,6 @@ body{
 
 
 /*Allt här under tillhör om-sidan*/
-article{
-    background-color: white;
-    color: black;
-    text-align: left;
-    border: 1px solid black;
-    margin: 25px;
-    padding: 25px;
-}
-
-#main > article > h1, h2, h3, h4, h5 {
-    color: black; 
-}
-
 #main > #top-element{
     background-color: #F1F1F1;
     width: 100%;
@@ -331,8 +226,6 @@ article{
 .right p{
     color: #5C5C5C;
 }
-
-
 
 
 /*Allt här under tillhör logga in-sidan*/
@@ -546,7 +439,34 @@ article{
 }
 
 
-/*Allt här under tillhör swipe*/
+/*Allt här under tillhör index*/
+#wrapper-index{
+    position: relative;
+    width: 100%;
+    height:100vh;
+    background-image: url(/static/images/index-bg.png);
+    background-size:cover;
+    background-attachment:fixed;
+    background-position: center center;
+}
+
+.how-to{
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    z-index: 1000;
+    padding-bottom: 100px;
+}
+
+.how-to img{
+    margin-top: 70px;
+    width: 90vw;
+    max-width: 520px;
+    height: 71vh;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .swipe {
     max-width: 100vw;
     height: 87vh;
@@ -556,13 +476,13 @@ article{
     position: relative;
     opacity: 0;
     transition: opacity 0.1s ease-in-out;
-  }
+}
   
-  .loaded.swipe {
+.loaded.swipe {
     opacity: 1;
-  }
+}
   
-  .swipe--status {
+.swipe--status {
     position: absolute;
     top: 45%;
     margin-top: -30px;
@@ -570,9 +490,9 @@ article{
     width: 100%;
     text-align: center;
     pointer-events: none;
-  }
+}
   
-  .swipe--status i {
+.swipe--status i {
     font-size: 100px;
     opacity: 0;
     transform: scale(0.3);
@@ -580,19 +500,19 @@ article{
     position: absolute;
     width: 100px;
     margin-left: -50px;
-  }
+}
   
-  .swipe_love .fa-heart {
+.swipe_love .fa-heart {
     opacity: 0.7;
     transform: scale(1);
-  }
+}
   
-  .swipe_nope .fa-times {
+.swipe_nope .fa-times {
     opacity: 0.7;
     transform: scale(1);
-  }
+}
   
-  .swipe--cards {
+.swipe--cards {
     flex-grow: 1;
     padding-top: 40px;
     text-align: center;
@@ -600,9 +520,9 @@ article{
     justify-content: center;
     align-items: flex-end;
     z-index: 1;
-  }
+}
   
-  .swipe--card {
+.swipe--card {
     display: inline-block;
     width: 90vw;
     max-width: 500px;
@@ -617,42 +537,42 @@ article{
     cursor: -moz-grab;
     cursor: grab;
     box-shadow: 0px 2px 10px 0.1px;
-  }
+}
   
-  .moving.swipe--card {
+.moving.swipe--card {
     transition: none;
     cursor: -webkit-grabbing;
     cursor: -moz-grabbing;
     cursor: grabbing;
-  }
+}
   
-  .swipe--card img {
+.swipe--card img {
     width: 100%;
     height: 100%;
     pointer-events: none;
-  }
+}
   
-  .swipe--card h3 {
+.swipe--card h3 {
     margin-top: 32px;
     font-size: 32px;
     padding: 0 16px;
     pointer-events: none;
-  }
+}
   
-  .swipe--card p {
+.swipe--card p {
     margin-top: 24px;
     font-size: 20px;
     padding: 0 16px;
     pointer-events: none;
-  }
+}
   
-  .swipe--buttons {
+.swipe--buttons {
     flex: 0 0 100px;
     text-align: center;
     padding-top: 20px;
-  }
+}
   
-  .swipe--buttons button {
+.swipe--buttons button {
     border-radius: 50%;
     line-height: 60px;
     width: 60px;
@@ -661,40 +581,107 @@ article{
     display: inline-block;
     margin: 0 8px;
     box-shadow: 0px 0px 5px 0.1px;
-  }
+}
 
-  .swipe--buttons button:hover {
+.swipe--buttons button:hover {
     cursor: pointer;
-  }
+}
   
-  .swipe--buttons button:focus {
+.swipe--buttons button:focus {
     outline: 0;
-  }
+}
   
-  .swipe--buttons i {
+.swipe--buttons i {
     font-size: 32px;
     vertical-align: middle;
-  }
+}
   
-  .fa-heart {
+.fa-heart {
     color: #3bdfcc;
     display: block;
     background: -webkit-linear-gradient(#3bdfcc, #00b4c8, #2ea4ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+}
   
-  .fa-times {
+.fa-times {
     color: #ff0022;
-  }
+} 
 
-/*Allt här under tillhör styling av Flash-meddelande*/
+@media (max-width: 992px) { 
+/*För sufplattor: */    
+    .navbar{
+        padding: 0px;
+        max-height: none !important;
+    }
+
+    .navbar-nav {
+        margin-right: 0 !important;
+    }
+
+    #main-gillar > #top-element > #top-element-content h1{
+        font-size: 4rem !important;
+    }
+
+    .search .form-control {
+        width: 100% !important;
+    }
+
+    .navbar .navbar-nav .nav-link-log-in-and-out {
+        line-height: 70px !important;
+        background: none !important;
+        padding: none !important;
+        border-radius: none !important;
+        color: #000000 !important;
+        text-transform: none!important;
+        font-size: 1.3em !important;
+        font-weight: normal !important;
+    }
     
-.flash {
-    display: block;
-    width: 90%;
-    margin: auto;
-    color: #c01919;
-    background-color:#fff;
-    margin-top: 20px;
-}  
+    .navbar .navbar-nav .nav-link-log-in-and-out:hover{
+        text-decoration: none !important;
+        background-color: none !important;
+        color: #00B4C8 !important;
+    }
+
+    .container h4{
+        color: #2C2C2C;
+    }
+      
+    .left {
+        width: 100% !important;
+    }
+    
+    .left img{
+        display: none;
+    }
+      
+    .right {
+        width: 100% !important;
+        margin-left: 0% !important;
+    }
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        position: relative;
+        width: 50%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    /* För mobiltelefoner: */
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    #wrapper-index{
+        background-image: none;
+    }
+}
+
+
+  

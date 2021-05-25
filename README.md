@@ -22,11 +22,11 @@ Installera python med den senaste versionen.
 (Minimum version 3.9.2)
 https://www.python.org/
 
-steg 2:
+Steg 2:
 pip install -r requirements.txt
 
 Steg 3:
-Lägg db_connection.py som ni hämtade i zip-filen från canvas på samma plats som main.py
+Lägg db_connection.py som ni hämtade i zip-filen på samma plats som main.py (Här ligger uppgifter till databasen)
 
 Steg 4:
 starta: main.py (som kör programmet)
@@ -41,7 +41,7 @@ starta: main.py (som kör programmet)
 - Rasmus Appelgren
 
 ---
-## Demo version 3.0.0:
+## Demo version 4.0.0:
 [HittaResa.nu](hittaresa.nu) (Kommer snart!)
 
 ---

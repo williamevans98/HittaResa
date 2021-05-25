@@ -2,7 +2,8 @@ from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
-# Definerar databasen uppbyggnad
+
+# Definerar databasen uppbyggnad.
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)

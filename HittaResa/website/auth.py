@@ -6,19 +6,20 @@ from flask_login import login_user, login_required, logout_user, current_user
 import pymysql
 from db_connection import *
 
+
 connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
 
 
 # Förbereder ett "cursor" objekt genom att använda cursor() metoden.
 cursor = connection.cursor()
 
-# Länkar auth.py med main.py
+# Länkar auth.py med main.py.
 auth = Blueprint('auth', __name__)
 
 @auth.route('/inloggning', methods=['GET', 'POST'])
 def login():
     '''
-    Hämtar alla fält och försöker logga in användaren
+    Hämtar alla fält och försöker logga in användaren.
     '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     if request.method == 'POST':
@@ -39,21 +40,23 @@ def login():
     connection.close()
     return render_template("inloggning.html", user=current_user)
 
+
 @auth.route('/logout')
 @login_required
 def logout():
     '''
-    Loggar ut användaren
+    Loggar ut användaren.
     '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     logout_user()
     connection.close()
     return redirect(url_for('views.home'))
 
+
 @auth.route('/registrera', methods=['POST'])
 def sign_up():
     '''
-    Hämtar alla fält och registrerar användaren
+    Hämtar alla fält och registrerar användaren.
     '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     email = request.form.get('email')
@@ -74,19 +77,19 @@ def sign_up():
             password1, method='sha256'))
         db.session.add(new_user)
         db.session.commit()
-        #login_user(new_user, remember=False)
         flash('Konto skapat!', category='success')
         connection.close()
         return redirect(url_for('views.home'))
     connection.close()
     return render_template("registrera.html")
 
+
 @auth.route('/gillar', methods=['GET', 'POST'])
 def gillar():
     '''
-    En route till gillar-sidan
+    En route till gillar-sidan.
 
-    Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat
+    Om man väljer att söka på ett resmål visas det upp annars visas alla resmålen man gillat.
     
     '''
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
@@ -94,9 +97,7 @@ def gillar():
     string = str(current_user)
     get_last_element = string.split(' ')[-1]
     get_user_id = get_last_element.strip('>')
-    print(get_user_id)
     if request.method == "POST":
-        print(request.form['search'])
         search = request.form['search']
         try:
             sql = ("SELECT * FROM images JOIN status on images.image_id = status.image_id WHERE like_or_not = 1 AND user_id = " + get_user_id + " AND location = '%s'" % (search))
@@ -114,6 +115,7 @@ def gillar():
         connection.close()
         return render_template("gillar.html", user=current_user, content=data)
 
+
 @auth.route('/inloggning')
 def inloggning():
     '''
@@ -122,6 +124,7 @@ def inloggning():
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     connection.close()
     return render_template("inloggning.html")
+
 
 @auth.route('/registrera')
 def registrera():
@@ -132,6 +135,7 @@ def registrera():
     connection.close()
     return render_template("registrera.html")
 
+
 @auth.route('/om')
 def om():
     '''
@@ -140,6 +144,7 @@ def om():
     connection = pymysql.connect(host=database_host,user=database_user,passwd=database_password,database=database_name)
     connection.close()
     return render_template("om.html")
+
 
 @auth.route('/like', methods=['POST'])
 def image_like_or_not():
@@ -157,22 +162,23 @@ def image_like_or_not():
     id = cursor.fetchone()[0]
     status_like = "1"
     
-    # Kolla om det finns en aktiv användare och ett användarid    
+    # Kolla om det finns en aktiv användare och ett användarid.    
     if current_user.is_active and get_user_id != "":
-        # Kolla om bilden redan finns i tabellen
+        # Kolla om bilden redan finns i tabellen.
         cursor.execute("SELECT * from status where user_id = " + str(get_user_id) + "  and image_id = " + str(id))
         exists = cursor.fetchone()
             
         if exists is None:
-            # Bilden finns inte i tabellen, lägg in den med insert
+            # Bilden finns inte i tabellen, lägg in den med insert.
             cursor.execute("INSERT INTO status (user_id, image_id, like_or_not) values(" + str(get_user_id) + ", " + str(id) + ", " + str(status_like) + ")")
             connection.commit()
         else:
-            # Bilden finns i tabellen, uppdatera like_or_not till 1
+            # Bilden finns i tabellen, uppdatera like_or_not till 1.
             cursor.execute("UPDATE status set like_or_not = " + str(status_like) + " where user_id = " + str(get_user_id) + " and image_id = " + str(id))
 
     connection.close()
     return "done"
+
 
 @auth.route('/remove', methods=['POST'])
 def remove_image_like():
