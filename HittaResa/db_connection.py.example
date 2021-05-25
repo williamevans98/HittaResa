@@ -1,0 +1,4 @@
+database_host = "Server name"
+database_name = "Database name"
+database_user = "Database user"
+database_password = "Database password"
