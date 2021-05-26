@@ -687,5 +687,18 @@ body{
     }
 }
 
+@media only screen and (max-width: 450px) {
+    /* För mobiltelefoner: */
+    #footer {
+        display: none;
+    }
+    .navbar img {
+        width: 70%;
+        padding: 0px !important;
+    }
+
+    
+}
+
 
   
