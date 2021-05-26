@@ -453,7 +453,7 @@ body{
     width: 100%;
     margin: auto;
     position: absolute;
-    z-index: 1000;
+    z-index: 9999;
     padding-bottom: 100px;
 }
 
@@ -569,6 +569,7 @@ body{
     flex: 0 0 100px;
     text-align: center;
     padding-top: 20px;
+    z-index: 5000;
 }
   
 .swipe--buttons button {
