@@ -76,7 +76,6 @@ body{
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #00B4C8!important;
     text-decoration: underline;
-    text-decoration-thickness: 3px;
 }
 
 .flash {
@@ -615,6 +614,10 @@ body{
         max-height: none !important;
     }
 
+    .how-to img{
+        margin-top: 50px !important;
+    }
+
     .navbar-nav {
         margin-right: 0 !important;
     }
@@ -630,8 +633,8 @@ body{
     .navbar .navbar-nav .nav-link-log-in-and-out {
         line-height: 70px !important;
         background: none !important;
-        padding: none !important;
-        border-radius: none !important;
+        padding: 0px !important;
+        border-radius: 0px !important;
         color: #000000 !important;
         text-transform: none!important;
         font-size: 1.3em !important;
@@ -640,7 +643,7 @@ body{
     
     .navbar .navbar-nav .nav-link-log-in-and-out:hover{
         text-decoration: none !important;
-        background-color: none !important;
+        background-color: white !important;
         color: #00B4C8 !important;
     }
 
